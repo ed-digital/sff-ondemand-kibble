@@ -1,0 +1,58 @@
+{{import "./nav.jet"}}
+{{import "./seo.jet" }}
+{{import "./footer.jet" }}
+
+{{CDN := "//cdn.shift72.com/latest"}}
+{*{CDN:="//localhost:3000"}*}
+<!DOCTYPE html>
+<html lang="{{lang.Code}}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preload" href="/{{lang.DefinitionFilePath}}" as="fetch" crossorigin>
+    <link rel="preload" href="/classifications.all.json" as="fetch" crossorigin type="application/json">
+    <!-- Kibble:{{ version }} -->
+    <!-- Template:{{site.SiteConfig.Version}} -->
+
+    <link rel="stylesheet" href="{{CDN}}/s72.ui.css">
+    <link rel="stylesheet" href="{{CDN}}/s72.transactional.css">
+
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <link rel="shortcut icon" href="/images/common/favicon.png" type="image/png">
+    <link rel="icon" href="/images/common/favicon.png" type="image/png">
+
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch" defer></script>
+    <script src="{{CDN}}/s72.core.js" defer></script>
+    <script src="{{CDN}}/s72.ui.js" defer></script>
+    <script src="/scripts/main.js" defer></script>
+
+    {* Only required for transactional sites *}
+    <script src="{{CDN}}/s72.transactional.js" defer></script>
+    <script src="//js.stripe.com/v3/" defer></script>
+
+    {{block head()}}
+      {{yield seo()}}
+    {{end}}
+
+    <script>
+      window.addEventListener('DOMContentLoaded', function(){
+        s72.cfg(function(){ return s72.i18n.load('{{lang.Code}}', '/{{lang.DefinitionFilePath}}'); });
+        s72.boot({ config: {{ site.Config | json | raw }}, toggles: {{ site.Toggles | json | raw }} });
+      });
+    </script>
+  </head>
+  <body>
+
+    {{block navigation()}}
+      {{yield nav() }}
+    {{end}}
+
+    {{yield body()}}
+
+    {{yield footer()}}
+
+  </body>
+</html>

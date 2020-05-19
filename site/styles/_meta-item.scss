@@ -1,0 +1,191 @@
+.meta-item {
+  position: relative;
+
+  a { display: inline-block; }
+
+  .poster s72-image {
+    display: block;
+    height: 100%;
+  }
+}
+
+.meta-item-body {
+  @include stretch();
+
+  z-index: 2;
+  padding: $meta-item-body-padding;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: $meta-item-body-font-size;
+  color: $meta-item-body-color;
+
+  &.hover {
+    opacity: 0;
+    transition: opacity $meta-item-hover-time ease;
+    background-color: $meta-item-body-bg;
+
+    s72-play-button.s72-show {
+      flex: 1;
+    }
+  }
+
+  s72-classification-label {
+    margin-bottom: .5rem;
+  }
+
+  .s72-classification-label {
+    border-color: $meta-item-body-color;
+  }
+
+  .s72-classification-description {
+    font-size: $meta-item-synopsis-font-size;
+  }
+}
+
+.meta-item-link {
+
+  &:hover {
+    text-decoration: none;
+
+    .meta-item-body.hover {
+      opacity: 1;
+    }
+
+    s72-availability-status,
+    s72-availability-label {
+      display: none;
+    }
+  }
+}
+
+.meta-item-title {
+  font-weight: bold;
+}
+
+.meta-item-text {
+
+  .meta-item-tagline {
+    margin-bottom: 0;
+  }
+}
+
+.meta-item-synopsis {
+  $meta-item-synopsis-lines: 4;
+  font-size: $meta-item-synopsis-font-size;
+  overflow: hidden;
+  max-height: ($meta-item-synopsis-font-size * $line-height-base * $meta-item-synopsis-lines);
+  text-overflow: -o-ellipsis-lastline;
+
+  // this is shit, and uses the old flexbox implementation, but its the easiest way to get ellipsis on multiline elements
+  display: -webkit-box;
+  -webkit-line-clamp: $meta-item-synopsis-lines;
+  -webkit-box-orient: vertical;
+}
+
+.meta-item-play-btn {
+  padding-right: 0;
+  margin: 0 auto;
+  display: block;
+}
+
+.meta-item-play-btn-landscape {
+  text-align: center;
+}
+
+.meta-item-play-btn-portrait {
+
+  .s72-icon-play {
+    margin: 0;
+    width: 64px;
+    height: 64px;
+  }
+
+  .verb { display: block; }
+}
+
+.meta-item-caption {
+  color: $meta-item-caption-color;
+  padding-top: $meta-item-caption-padding-y;
+  font-size: $meta-item-caption-font-size;
+
+  .meta-item-tagline { font-size: $small-font-size; }
+}
+
+.meta-item-pricing-btn.s72-show {
+  display: block;
+
+  .s72-pricing-buttons {
+    margin-top: .5rem;
+  }
+
+  .s72-pricing-button-container {
+    display: flex;
+
+    .s72-btn {
+      flex: 1;
+    }
+  }
+
+
+  &.meta-item-pricing-btn-vertical .s72-pricing-button-container {
+    display: block;
+    flex: none;
+
+    &, .s72-btn {
+      width: 100%;
+    }
+
+    .s72-btn {
+      margin-left: 0;
+
+      &:nth-child(2){
+        margin-top: .5rem;
+      }
+    }
+  }
+
+}
+
+.featured-meta-item {
+  overflow: hidden;
+  border-radius: $meta-item-border-radius;
+
+  s72-availability-status { top: $meta-item-availability-tag-margin; right: $meta-item-availability-tag-margin; }
+  s72-availability-label  { top: $meta-item-availability-tag-margin; left: $meta-item-availability-tag-margin; }
+
+  s72-image {
+    display: block;
+    width: 100%;
+  }
+
+  .meta-item-title {
+    font-size: $h4-font-size;
+    line-height: $headings-line-height;
+    text-shadow: 1px 1px 2px #000;
+  }
+
+  .meta-item-text {
+    margin-top: 5px;
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+
+  .meta-item-buttons {
+    margin-top: 5px;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+}
+
+.featured-meta-item-body {
+  top: auto;
+  display: block;
+  @include gradient-y($start-color: transparent, $end-color: rgba(#000, 0.7), $start-percent: 0%, $end-percent: 50%);
+  padding: $featured-meta-item-body-padding;
+}

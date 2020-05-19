@@ -1,0 +1,153 @@
+{{extends "../application.jet"}}
+{{import "../common/slider.jet"}}
+{{import "../items/tagline.jet"}}
+{{import "../collection/page_collection_item.jet"}}
+{{import "./episode.jet"}}
+
+{{block head()}}
+  {{yield seo() tvseason}}
+{{end}}
+
+{{block body()}}
+  <div class="page page-tvseason meta-detail meta-detail-tvseason">
+
+    <div class="meta-detail-bg">
+      <div class="meta-detail-bg-gradient"></div>
+      <s72-image src="{{tvseason.Images.Background}}" class="meta-detail-bg-img"></s72-image>
+    </div>
+
+    <div class="container">
+      <s72-availability-status data-slug="{{tvseason.Slug}}" class="meta-detail-availability-status"></s72-availability-status>
+      <s72-availability-label data-slug="{{tvseason.Slug}}" class="meta-detail-availability-label"></s72-availability-label>
+
+      <div class="meta-detail-watch-buttons">
+        {{if len(tvseason.Trailers) > 0 }}
+          <s72-cant-be-watched data-slug="{{tvseason.Slug}}">
+            <s72-modal-player src="{{tvseason.Trailers[0].URL}}" data-slug="{{tvseason.Slug}}" class="btn-play-square" data-label="{{i18n("play_trailer")}}" autoplay="querystring"></s72-modal-player>
+          </s72-cant-be-watched>
+        {{end}}
+        <s72-play-button data-slug="{{tvseason.Slug}}" class="btn-play-square" data-title="{{tvseason.Title}}"></s72-play-button>
+      </div>
+
+      <div class="meta-detail-main">
+
+        <div class="meta-detail-panel">
+          <div class="poster poster-portrait">
+            <s72-availability-status data-slug="{{tvseason.Slug}}"></s72-availability-status>
+            <s72-availability-label data-slug="{{tvseason.Slug}}"></s72-availability-label>
+            <s72-image src="{{tvseason.Images.Portrait}}" alt="{{tvseason.Title}}" class="poster poster-image poster-image-portrait"></s72-image>
+            <s72-playback-progress slug="{{tvseason.Slug}}"></s72-playback-progress>
+          </div>
+        </div>
+
+        <div class="meta-detail-content">
+
+          <h1 class="meta-detail-title">{{tvseason.GetTitle(i18n)}}</h1>
+          <div class="meta-detail-tagline">
+            {{yield metaItemTagline() tvseason}}
+          </div>
+
+          {{if len(tvseason.Trailers) > 0 }}
+            <div class="meta-detail-buttons">
+              <s72-pricing-buttons data-slug="{{tvseason.Slug}}" data-title="{{tvseason.Title}}"></s72-pricing-buttons>
+
+              <s72-can-be-watched data-slug="{{tvseason.Slug}}">
+                <s72-modal-player src="{{tvseason.Trailers[0].URL}}" data-slug="{{tvseason.Slug}}" data-label="{{i18n("play_trailer")}}"></s72-modal-player>
+              </s72-can-be-watched>
+            </div>
+          {{end}}
+
+          <div class="meta-detail-synopsis">{{tvseason.Overview | raw}}</div>
+
+          {{if len(tvseason.Cast) > 0}}
+            <div class="meta-detail-cast">
+              <h3>{{i18n("meta_detail_cast_title")}}</h3>
+              <div class="cast-members">
+                {{range index, member := tvseason.Cast}}
+                  <a href="/search.html?q={{member.Name}}">{{member.Name}}</a>{{if index < len(tvseason.Cast) - 1}}, {{end}}
+                {{end}}
+              </div>
+            </div>
+          {{end}}
+
+          {{if len(tvseason.Crew) > 0}}
+            <div class="meta-detail-crew">
+              <h3>{{i18n("meta_detail_crew_title")}}</h3>
+              <div class="crew-members">
+                {{range index, member := tvseason.Crew}}
+                  <div class="crew-member">
+                    <span class="crew-member-job">{{member.Job}}</span>
+                    <a class="crew-member-name" href="/search.html?q={{member.Name}}">{{member.Name}}</a>
+                  </div>
+                {{end}}
+              </div>
+            </div>
+          {{end}}
+
+          {{if len(tvseason.Episodes) > 0}}
+            <div class="meta-detail-episodes">
+              <h3 id="episodes">{{i18n("meta_detail_episodes_title")}}</h3>
+              {{yield slider(itemsPerRow=6, itemLayout="landscape") content}}
+                {{range episode := tvseason.Episodes}}
+                  <div class="slider-item slider-item-6">
+                    {{yield episodeCollectionItem(item=episode)}}
+                  </div>
+                {{end}}
+              {{end}}
+            </div>
+          {{end}}
+
+          {{if len(tvseason.Bonuses) > 0 }}
+            <div class="meta-detail-bonus-content">
+              <h3>{{i18n("meta_detail_bonus_title")}}</h3>
+              {{yield slider(itemsPerRow=6, itemLayout="landscape") content}}
+                {{range bonus := tvseason.Bonuses}}
+                  <div class="slider-item slider-item-6">
+                    <div class="bonus-content">
+                      <div class="bonus-content-poster poster poster-landscape">
+                        <s72-availability-status slug="{{bonus.Slug}}"></s72-availability-status>
+                        <s72-image src="{{len(bonus.Images.Landscape) > 0 ? bonus.Images.Landscape : tvseason.Images.Landscape}}" alt="" class="poster-image poster-image-landscape"></s72-image>
+                        <s72-play-button data-slug="{{bonus.Slug}}" class="btn-play-poster" data-label="false" title="{{bonus.Title}}"></s72-play-button>
+                        <s72-playback-progress slug="{{bonus.Slug}}"></s72-playback-progress>
+                      </div>
+                      <div class="bonus-content-caption">
+                        <div class="bonus-content-title">{{bonus.Title}}</div>
+                        <div class="bonus-content-synopsis">{{bonus.Overview | raw}}</div>
+
+                        {{if bonus.Runtime > 0}}
+                          <div class="bonus-content-runtime">
+                            {{if bonus.Runtime.Hours() > 0}}
+                              {{bonus.Runtime.Hours()}}{{i18n("runtime_hours")}}
+                            {{end}}
+                            {{bonus.Runtime.Minutes()}}{{i18n("runtime_minutes")}}
+                          </div>
+                        {{end}}
+                      </div>
+                    </div>
+                  </div>
+                {{end}}
+              {{end}}
+            </div>
+          {{end}}
+
+          {{if len(tvseason.Recommendations) > 0 }}
+            <div class="meta-detail-recommendations">
+              <h3>{{i18n("meta_detail_recommendations_title")}}</h4>
+              {{yield slider(itemsPerRow=6, itemLayout="portrait") content}}
+                {{range item := tvseason.Recommendations}}
+                  <div class="slider-item slider-item-6">
+                    {{yield metaItem(item=item, layout="portrait")}}
+                  </div>
+                {{end}}
+              {{end}}
+            </div>
+          {{end}}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+{{end}}

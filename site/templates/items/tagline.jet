@@ -1,0 +1,48 @@
+{{block metaItemTagline(genres=true, classification=true)}}
+  <ul class="meta-item-tagline">
+
+    {{if classification==true}}
+    <li class="meta-item-tagline-item meta-item-tagline-item-classification">
+      <s72-classification-label data-slug="{{.Slug}}" data-layout="tooltip"></s72-classification-label>
+    </li>
+    {{end}}
+
+    {{showRuntime:=true}}
+
+    {{if isset(.Season)}}
+      {{showRuntime=false}}
+      <li class="meta-item-tagline-item">{{i18n("tvseason_title_html", map("Season", .Season, "ShowInfo", .Season.ShowInfo))|raw}}</li>
+    {{end}}
+
+    {{if genres == true}}
+      {{if isset(.Genres)}}
+        <li class="meta-item-tagline-item">{{.Genres}}</li>
+      {{end}}
+      {{if isset(.ShowInfo) && isset(.ShowInfo.Genres)}}
+        <li class="meta-item-tagline-item">{{.ShowInfo.Genres}}</li>
+      {{end}}
+
+      {{if isset(.Runtime) || (isset(.ShowInfo) && isset(.ShowInfo.ReleaseDate))}}
+        <li class="meta-item-tagline-divider">•</li>
+      {{end}}
+    {{end}}
+
+    {{if showRuntime && isset(.Runtime)}}
+
+      {{if .Runtime > 60}}
+        <li class="meta-item-tagline-item">{{.Runtime.Hours()}}{{i18n("runtime_hours")}} {{.Runtime.Minutes()}}{{i18n("runtime_minutes")}}</li>
+      {{else}}
+        <li class="meta-item-tagline-item">{{.Runtime.Minutes()}}{{i18n("runtime_minutes")}}</li>
+      {{end}}
+    {{end}}
+
+    {{if isset(.Items)}}
+      <li class="meta-item-tagline-item">{{i18n("bundle_items_all_films", len(.Items))}}</li>
+    {{end}}
+
+    {{if isset(.ShowInfo) && isset(.ShowInfo.ReleaseDate)}}
+      <li class="meta-item-tagline-item">{{.ShowInfo.ReleaseDate.Year()}}</li>
+    {{end}}
+
+  </ul>
+{{end}}

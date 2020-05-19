@@ -1,0 +1,35 @@
+$meta-item-tagline-item-margin-right: map-get($spacers, 1); // Currently 0.25rem
+
+
+.meta-item-tagline {
+  @extend .list-inline;
+  @extend .d-flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.meta-item-tagline-item,
+.meta-item-tagline-divider {
+  @extend .list-inline-item;
+
+  &:not(:last-child) {
+    margin-right: $meta-item-tagline-item-margin-right;
+  }
+}
+
+.meta-item-tagline-item.meta-item-tagline-item-classification {
+  margin-right: 0;
+
+  .s72-classification {
+    margin-right: $meta-item-tagline-item-margin-right;
+  }
+}
+
+.s72-classification-label-m {
+  border-color: $danger;
+  color: $danger;
+}
+
+.s72-classification-description {
+  margin-left: $meta-item-tagline-item-margin-right
+}

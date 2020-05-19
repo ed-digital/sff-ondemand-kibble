@@ -1,0 +1,33 @@
+{{import "../items/featured_item.jet"}}
+{{block pageCollectionCarousel()}}
+{{if len(.Items) > 0}}
+{*
+	Image width and height are here to help with resizing, there might be another way doing it,
+	but I didnt want to have to rely on images loading like the web-core carousel.
+
+	None of the html in .carousel-item is finished or even 10% looked at, so feel free to make it better.
+	This was copypasted from web-core.
+*}
+<s72-carousel data-image-width="1600" data-image-height="600" pause-on-hover="false">
+	<div class="page-collection page-collection-carousel">
+		<div class="s72-carousel-slides">
+			{{range item := .Items}}
+				<div class="s72-carousel-item">
+					{{yield featuredItem(item=item, image="Carousel")}}
+				</div>
+			{{end}}
+		</div>
+
+		<div class="s72-carousel-pagination">
+			{{range index, item := .Items}}
+				<div class="s72-carousel-page" data-page-index="{{index}}"><span class="carousel-page-rect"></span></div>
+			{{end}}
+		</div>
+
+		<!-- Controls -->
+		<a class="left s72-carousel-control"><span class="s72-icon s72-icon-angle-left"></span></a>
+		<a class="right s72-carousel-control"><span class="s72-icon s72-icon-angle-right"></span></a>
+	</div>
+</s72-carousel>
+{{end}}
+{{end}}
