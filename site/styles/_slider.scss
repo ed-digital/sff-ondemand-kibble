@@ -1,18 +1,19 @@
 .s72-slider-control {
-
   font-family: $font-family-base;
   height: $slider-control-height;
   width: $slider-control-width;
   background-color: $slider-control-bg;
+  box-shadow: $slider-control-shadow;
   border: 1px solid $slider-control-border;
-  border-radius: 50%;
+  border-radius: 0;
   z-index: 10;
   margin: 5px; //make it a bit easier to hit
 
-  &.right .s72-icon { margin-left: 1px; }
+  &.right .s72-icon {
+    margin-left: 1px;
+  }
 
   .s72-icon {
-
     font-size: $slider-control-icon-size;
     color: $slider-control-color;
     position: absolute;
@@ -37,7 +38,6 @@
   @include hover-focus {
     background: $slider-control-hover-bg;
   }
-
 }
 
 .s72-slider-fluid .s72-slider-control {
@@ -55,20 +55,21 @@
   $child-width: $width - ($slider-item-gutter-width);
 
   .slider-#{$i} {
-
-    &.slider-landscape .s72-slider-control{
-      top: ($child-width * $poster-landscape-size-ratio) / 2 - ($slider-control-height / 2);
+    &.slider-landscape .s72-slider-control {
+      top: ($child-width * $poster-landscape-size-ratio) /
+        2 -
+        ($slider-control-height / 2);
     }
 
-    &.slider-portrait .s72-slider-control{
-      top: ($child-width * $poster-portrait-size-ratio) / 2 - ($slider-control-height / 2);
+    &.slider-portrait .s72-slider-control {
+      top: ($child-width * $poster-portrait-size-ratio) /
+        2 -
+        ($slider-control-height / 2);
     }
   }
 }
 
 s72-slider .s72-slider-container {
-
-
 }
 
 s72-slider.has-prev:before {
@@ -85,26 +86,23 @@ s72-slider.has-next.s72-slider-scroll:after {
 }
 
 .slider-fade-in {
-
   display: block;
-  content: '';
+  content: "";
   width: 100px;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 5;
   height: 100%;
-  @include gradient-x(rgba($body-bg, .9), transparent, 0%, 100%);
+  @include gradient-x(rgba($body-bg, 0.9), transparent, 0%, 100%);
   pointer-events: auto; // if its none, it allows clicks through to the item beneath it
 }
 
 .slider-fade-out {
-
   @extend .slider-fade-in;
   left: auto;
   right: 0;
-  @include gradient-x(transparent, rgba($body-bg, .9), 0%, 100%);
-
+  @include gradient-x(transparent, rgba($body-bg, 0.9), 0%, 100%);
 }
 
 .slider {
@@ -124,7 +122,6 @@ s72-slider.has-next.s72-slider-scroll:after {
   }
 
   .s72-slider-fluid {
-
     .s72-slider-container-container {
       @extend .container;
 

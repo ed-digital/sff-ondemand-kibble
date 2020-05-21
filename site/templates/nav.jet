@@ -1,56 +1,100 @@
 {{block nav()}}
-  <nav class="navbar navbar-expand-md">
-    <a class="navbar-brand" href="/">{{i18n("nav_branding_title")}}</a>
-    <button class="navbar-toggler" type="button" s72-collapse=".collapse" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icon-navbar-toggler"></span>
-    </button>
-
-    <div class="collapse navbar-collapse">
-      <div class="navbar-nav mr-auto" id="main-navbar">
-        {{range site.Navigation.Header}}
-          {{if len(.Items) > 0}}
-            <s72-dropdown class="nav-item">
-              <a class="s72-dropdown-toggle nav-link" href="{{ len(.Link.ExternalURL) > 0 ? .Link.ExternalURL : len(.Items) == 0 ? routeToSlug(.Link.Slug) : "#" }}">{{ .Label }}</a>
-              <div class="s72-dropdown-menu">
-                {{range sub := .Items}}
-                  <a class="dropdown-item" href="{{ len(sub.Link.ExternalURL) > 0 ? sub.Link.ExternalURL : routeToSlug(sub.Link.Slug) }}">{{ sub.Label }}</a>
-                {{end}}
+  <header id="header" data-widget="header#header">
+    <div class="-flying-carpet-anchor --mobile"></div>
+    <div class="-floater">
+      <div class="-flying-carpet-anchor --desktop"></div>
+      <div class="-main-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-2 -logo-column">
+              <div class="-inner --sff">
+                <div class="-logo">
+                  <a href="/" title="Home">
+                    <svg width="105px" height="42px" viewBox="0 0 105 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                      <g><g transform="translate(-28.000000, -15.000000)"><path d="M28,25.5746987 L29.6260462,23.2764265 C30.7204038,24.19892 33.1124831,24.9805298 35.2542949,24.9805298 C36.8645912,24.9805298 37.8653149,24.5428214 37.8653149,23.9174989 C37.849565,23.2137731 36.5675933,23.0105822 34.5820688,22.838545 C31.2205926,22.6353541 28.3127478,22.3227794 28.3127478,19.6179524 C28.3127478,16.9913555 31.0174017,15.6 35.0197773,15.6 C37.3493762,15.6 39.7570323,16.1628422 40.9921005,16.9446251 L39.7881859,19.3365313 C38.7094051,18.5391715 36.8176877,18.0703095 35.1291611,18.0703095 C34.5351653,18.0703095 32.3151233,18.2108469 32.2682198,19.1175905 C32.2682198,19.7742397 33.6753253,19.946277 35.4574857,20.0714107 C38.9908261,20.2746016 41.8207869,21.009481 41.8207869,23.4484637 C41.8207869,25.9341769 38.9439226,27.5757999 35.1135843,27.5757999 C32.346277,27.5757999 29.5009125,26.7315367 28,25.5746987 Z M52.749825,15.9908049 L57.0805252,15.9908049 L51.7335245,23.3702335 L51.7335245,27.184995 L47.6530918,27.184995 L47.6530918,23.3702335 L42.1965342,15.9908049 L46.4960808,15.9908049 L49.6855198,20.71231 L52.749825,15.9908049 Z M62.6315821,18.6329786 L62.6315821,24.5428214 L65.8210211,24.5428214 C67.947256,24.5428214 69.4324186,23.3389068 69.4324186,21.5879 C69.4324186,19.8368931 67.947256,18.6329786 65.8210211,18.6329786 L62.6315821,18.6329786 Z M66.399267,27.184995 L58.6603602,27.184995 L58.6603602,15.9908049 L66.399267,15.9908049 C70.5892566,15.9908049 73.3878906,18.2108469 73.3878906,21.5879 C73.3878906,24.9647799 70.5892566,27.184995 66.399267,27.184995 Z M89.7419866,15.9908049 L89.7419866,27.184995 L83.0193802,27.184995 L78.7824871,17.2727766 L78.7824871,27.184995 L74.9363989,27.184995 L74.9363989,15.9908049 L81.6591783,15.9908049 L85.8804946,25.9186001 L85.8804946,15.9908049 L89.7419866,15.9908049 Z M91.8848368,27.184995 L91.8848368,15.9908049 L103.688599,15.9908049 L103.688599,18.5235947 L95.8403088,18.5235947 L95.8403088,20.3997353 L103.063277,20.3997353 L103.063277,22.5728738 L95.8403088,22.5728738 L95.8403088,24.6522052 L103.84506,24.6522052 L103.84506,27.184995 L91.8848368,27.184995 Z M115.743322,15.9908049 L120.074022,15.9908049 L114.727195,23.3702335 L114.727195,27.184995 L110.646589,27.184995 L110.646589,23.3702335 L105.190204,15.9908049 L109.489578,15.9908049 L112.679017,20.71231 L115.743322,15.9908049 Z M28.7191295,41.5970085 L28.7191295,30.4028184 L40.4917386,30.4028184 L40.5074885,33.154549 L32.7997353,33.154549 L32.7997353,35.2494572 L39.5694182,35.2494572 L39.5694182,37.6571133 L32.7997353,37.6571133 L32.7997353,41.5970085 L28.7191295,41.5970085 Z M42.3687446,41.5970085 L42.3687446,30.4028184 L46.4336004,30.4028184 L46.4336004,41.5970085 L42.3687446,41.5970085 Z M52.7032677,30.4028184 L52.7032677,38.6109335 L59.5041042,38.6109335 L59.5041042,41.5970085 L48.6226619,41.5970085 L48.6226619,30.4028184 L52.7032677,30.4028184 Z M80.0950932,41.5970085 L76.249005,41.5970085 L76.249005,31.606733 L73.7163883,41.5970085 L68.1192933,41.5970085 L65.5709267,31.606733 L65.5709267,41.5970085 L61.7248385,41.5970085 L61.7248385,30.4028184 L68.5100982,30.4028184 L70.9021774,40.29946 L73.356737,30.4028184 L80.0950932,30.4028184 L80.0950932,41.5970085 Z M28.7191295,56.0093681 L28.7191295,44.8151781 L40.4917386,44.8151781 L40.5074885,47.5667355 L32.7997353,47.5667355 L32.7997353,49.6618169 L39.5694182,49.6618169 L39.5694182,52.0694729 L32.7997353,52.0694729 L32.7997353,56.0093681 L28.7191295,56.0093681 Z M42.3531678,56.0093681 L42.3531678,44.8151781 L54.1569305,44.8151781 L54.1569305,47.3479678 L46.3084667,47.3479678 L46.3084667,49.2241084 L53.5316079,49.2241084 L53.5316079,51.3970738 L46.3084667,51.3970738 L46.3084667,53.4765784 L54.3132178,53.4765784 L54.3132178,56.0093681 L42.3531678,56.0093681 Z M55.8303994,54.3988988 L57.4562725,52.1007996 C58.5508032,53.02312 60.9428825,53.8047299 63.0846943,53.8047299 C64.6951636,53.8047299 65.6957143,53.3670214 65.6957143,52.7416989 C65.6799644,52.0381462 64.3979927,51.8347823 62.4124682,51.6629181 C59.050992,51.4597272 56.1431472,51.1469794 56.1431472,48.4423255 C56.1431472,45.8157287 58.8478011,44.4242001 62.8501767,44.4242001 C65.1796025,44.4242001 67.5874316,44.9870422 68.8224998,45.7688252 L67.6185853,48.1609044 C66.5399775,47.3635447 64.648087,46.8945095 62.9595605,46.8945095 C62.3655647,46.8945095 60.1455227,47.0352201 60.0986192,47.9419636 C60.0986192,48.5986128 61.5057246,48.770477 63.2880582,48.8956107 C66.8213986,49.0989747 69.6510132,49.833681 69.6510132,52.2726638 C69.6510132,54.7585501 66.774322,56.4 62.9439837,56.4 C60.1766764,56.4 57.3313119,55.5557367 55.8303994,54.3988988 Z M83.4726655,44.8151781 L83.4726655,47.8012531 L79.1106386,47.8012531 L79.1106386,56.0093681 L75.0300329,56.0093681 L75.0300329,47.8012531 L70.668006,47.8012531 L70.668006,44.8151781 L83.4726655,44.8151781 Z M85.1618843,56.0093681 L85.1618843,44.8151781 L89.2267402,44.8151781 L89.2267402,56.0093681 L85.1618843,56.0093681 Z M102.094053,44.8151781 L106.315369,44.8151781 L101.703248,56.0093681 L95.2774666,56.0093681 L90.6653454,44.8151781 L94.8866617,44.8151781 L98.4824824,54.664743 L102.094053,44.8151781 Z M110.13065,51.7567251 L114.38312,51.7567251 L112.256885,45.9875928 L110.13065,51.7567251 Z M115.180653,54.0549973 L109.34904,54.0549973 L108.614161,56.0093681 L104.377268,56.0093681 L108.801775,44.8151781 L115.727745,44.8151781 L120.136676,56.0093681 L115.899782,56.0093681 L115.180653,54.0549973 Z M125.67354,44.8151781 L125.67354,53.02312 L132.47455,53.02312 L132.47455,56.0093681 L121.593108,56.0093681 L121.593108,44.8151781 L125.67354,44.8151781 Z"></path></g></g>
+                    </svg>
+                  </a>
+                </div>
+                <div class="-date">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="63" height="33" viewBox="0 0 63 33"><path d="M16.5139,7.3767a3.1856,3.1856,0,0,1-1.1654-.8548,2.5882,2.5882,0,0,1-.5853-1.238l1.15-.4248a2.0067,2.0067,0,0,0,.3679.9221,2.0752,2.0752,0,0,0,.7408.632,2.04,2.04,0,0,0,.9427.2279,1.743,1.743,0,0,0,.8962-.2331,1.6266,1.6266,0,0,0,.6215-.6475,1.9367,1.9367,0,0,0,.2227-.9324V.1558h1.3261V4.9421a2.6567,2.6567,0,0,1-.3833,1.4141,2.6279,2.6279,0,0,1-1.0723.979,3.3543,3.3543,0,0,1-1.5488.3523A3.7056,3.7056,0,0,1,16.5139,7.3767Z" fill="#231f20"/><path d="M23.88,7.3042a3.3883,3.3883,0,0,1-1.4866-1.269A3.62,3.62,0,0,1,21.86,4.0408V.1558h1.3365v3.885a2.652,2.652,0,0,0,.3677,1.43,2.3158,2.3158,0,0,0,1.0152.891,3.4945,3.4945,0,0,0,1.4868.3,3.4592,3.4592,0,0,0,1.4814-.3,2.29,2.29,0,0,0,1.005-.891,2.682,2.682,0,0,0,.3626-1.43V.1558h1.3261v3.885a3.6214,3.6214,0,0,1-.5336,1.9943,3.394,3.394,0,0,1-1.4815,1.269,5.1494,5.1494,0,0,1-2.17.4351A5.1841,5.1841,0,0,1,23.88,7.3042Z" fill="#231f20"/><path d="M31.1732.1558h1.7094l5.3147,6.0191V.1558h1.3053V7.4907H37.7932l-5.3147-6.03v6.03H31.1732Z" fill="#231f20"/><path d="M40.5385.1558H47.77v1.036H41.8335V3.2327h5.5218v.9738H41.8335V6.465h6.04V7.4907H40.5385Z" fill="#231f20"/><path d="M3.7734,21.65a5.9074,5.9074,0,0,1-2.42-2.2214A6.1,6.1,0,0,1,.495,16.2081a6.1019,6.1019,0,0,1,.8588-3.2206,5.9113,5.9113,0,0,1,2.42-2.2214,7.7216,7.7216,0,0,1,3.5757-.801,7.7223,7.7223,0,0,1,3.5756.801,5.9131,5.9131,0,0,1,2.42,2.2214,6.1032,6.1032,0,0,1,.8588,3.2206,6.1015,6.1015,0,0,1-.8588,3.2205,5.9092,5.9092,0,0,1-2.42,2.2214,7.7214,7.7214,0,0,1-3.5756.801A7.7207,7.7207,0,0,1,3.7734,21.65Zm6.07-1.379a4.1676,4.1676,0,0,0,1.66-1.6516,4.89,4.89,0,0,0,.5862-2.4113,4.8907,4.8907,0,0,0-.5862-2.4113,4.169,4.169,0,0,0-1.66-1.6516,5.0639,5.0639,0,0,0-2.4938-.5946,5.0625,5.0625,0,0,0-2.4939.5946,4.165,4.165,0,0,0-1.66,1.6516,4.886,4.886,0,0,0-.5864,2.4113,4.8848,4.8848,0,0,0,.5864,2.4113,4.1636,4.1636,0,0,0,1.66,1.6516,5.0633,5.0633,0,0,0,2.4939.5946A5.0647,5.0647,0,0,0,9.8429,20.271Z" fill="#231f20"/><path d="M18.5218,21.9556a5.9646,5.9646,0,0,1-2.2626-1.3874A3.866,3.866,0,0,1,15.1609,18.52l1.9158-.5946a2.9016,2.9016,0,0,0,1.3792,2.0893,5.5228,5.5228,0,0,0,3.08.7844,5.3507,5.3507,0,0,0,2.7168-.611,1.84,1.84,0,0,0,1.0488-1.6352,1.5383,1.5383,0,0,0-.834-1.379,4.0364,4.0364,0,0,0-2.04-.4707H20.38V15.3163h1.3378a3.7076,3.7076,0,0,0,2.0481-.4707,1.4223,1.4223,0,0,0,.71-1.23,1.4441,1.4441,0,0,0-.3881-.9827,2.5717,2.5717,0,0,0-1.0652-.6854,4.3988,4.3988,0,0,0-1.5195-.2478,4.1562,4.1562,0,0,0-2.5022.735A2.7675,2.7675,0,0,0,17.82,14.3584L15.7884,13.83a3.8879,3.8879,0,0,1,1.0158-1.9572,5.461,5.461,0,0,1,2.0315-1.33,7.4314,7.4314,0,0,1,2.7168-.479,7.2868,7.2868,0,0,1,2.5681.4294,4.262,4.262,0,0,1,1.8,1.1974,2.6182,2.6182,0,0,1,.6523,1.7424,2.5689,2.5689,0,0,1-.4211,1.4369,2.3689,2.3689,0,0,1-1.1148.9249,3.6917,3.6917,0,0,1,1.7259,1.1479,2.7236,2.7236,0,0,1,.6193,1.7589,2.8793,2.8793,0,0,1-.7515,1.9489A4.8465,4.8465,0,0,1,24.5584,21.98a8.7657,8.7657,0,0,1-2.9563.4707A9.0605,9.0605,0,0,1,18.5218,21.9556Z" fill="#231f20"/><path d="M28.8192,16.1421H38.8939v1.569H28.8192Z" fill="#231f20"/><path d="M39.3232,20.4031h5.1034V12.7893a4.4517,4.4517,0,0,1-1.4947,1.23,14.2,14.2,0,0,1-2.5351.9993l-.4295-1.7176a11.531,11.531,0,0,0,2.8243-1.1892,5.4274,5.4274,0,0,0,1.7837-1.7506h1.9488V20.4031h4.0464v1.6516H39.3232Z" fill="#231f20"/><path d="M58.9606,19.5939H50.7522V18.3552l7.7129-7.9937h2.6259v7.5972H62.495v1.6352H61.0911v2.4608h-2.13Zm0-1.6352V12.2608l-5.4668,5.6979Z" fill="#231f20"/><path d="M19.9328,25.2921a2.5178,2.5178,0,0,1,1.062.8755,2.2261,2.2261,0,0,1,.3833,1.2795,1.6357,1.6357,0,0,1-.43,1.2017,2.4779,2.4779,0,0,1-1.0516.6268,13.8339,13.8339,0,0,1-1.6161.3677,14.0747,14.0747,0,0,0-1.3831.3,2.1336,2.1336,0,0,0-.8443.4507,1.0494,1.0494,0,0,0-.3419.8236v.3107H21.72v1.0361H14.3644l.01-1.3054a2.0473,2.0473,0,0,1,.5078-1.4866,2.7043,2.7043,0,0,1,1.1913-.7252,15.6561,15.6561,0,0,1,1.813-.3884,10.9958,10.9958,0,0,0,1.1707-.2331,1.8384,1.8384,0,0,0,.72-.3626.8206.8206,0,0,0,.2849-.6579,1.1072,1.1072,0,0,0-.2331-.6888,1.5628,1.5628,0,0,0-.6475-.4818,2.3375,2.3375,0,0,0-.9221-.1761,3.3287,3.3287,0,0,0-1.5643.4092A3.8288,3.8288,0,0,0,15.38,27.6127l-.7252-.86a4.3767,4.3767,0,0,1,1.6316-1.2795,4.8676,4.8676,0,0,1,2.1187-.4921A3.629,3.629,0,0,1,19.9328,25.2921Z" fill="#231f20"/><path d="M24.4082,32.311a3.7044,3.7044,0,0,1-1.5177-1.3934,4.0574,4.0574,0,0,1,0-4.04,3.7054,3.7054,0,0,1,1.5177-1.3934,5.2571,5.2571,0,0,1,4.4858,0,3.7081,3.7081,0,0,1,1.5177,1.3934,4.0574,4.0574,0,0,1,0,4.04,3.7072,3.7072,0,0,1-1.5177,1.3934,5.2571,5.2571,0,0,1-4.4858,0Zm3.8073-.8651A2.6148,2.6148,0,0,0,29.2567,30.41a3.2947,3.2947,0,0,0,0-3.0252,2.6161,2.6161,0,0,0-1.0412-1.0361,3.468,3.468,0,0,0-3.1287,0,2.6124,2.6124,0,0,0-1.0412,1.0361,3.2947,3.2947,0,0,0,0,3.0252,2.6111,2.6111,0,0,0,1.0412,1.0359,3.4668,3.4668,0,0,0,3.1287,0Z" fill="#231f20"/><path d="M37.14,25.2921a2.5178,2.5178,0,0,1,1.062.8755,2.2261,2.2261,0,0,1,.3833,1.2795,1.6357,1.6357,0,0,1-.43,1.2017,2.4779,2.4779,0,0,1-1.0516.6268,13.8339,13.8339,0,0,1-1.6161.3677,14.0747,14.0747,0,0,0-1.3831.3,2.1336,2.1336,0,0,0-.8443.4507,1.0494,1.0494,0,0,0-.3419.8236v.3107h6.0088v1.0361H31.572l.01-1.3054a2.0473,2.0473,0,0,1,.5078-1.4866,2.7043,2.7043,0,0,1,1.1913-.7252,15.6561,15.6561,0,0,1,1.813-.3884,10.9958,10.9958,0,0,0,1.1707-.2331,1.8384,1.8384,0,0,0,.72-.3626.8206.8206,0,0,0,.2849-.6579,1.1072,1.1072,0,0,0-.2331-.6888,1.5628,1.5628,0,0,0-.6475-.4818,2.3375,2.3375,0,0,0-.9221-.1761,3.3287,3.3287,0,0,0-1.5643.4092,3.8288,3.8288,0,0,0-1.3157,1.1447l-.7252-.86a4.3767,4.3767,0,0,1,1.6316-1.2795,4.8676,4.8676,0,0,1,2.1187-.4921A3.629,3.629,0,0,1,37.14,25.2921Z" fill="#231f20"/><path d="M41.6159,32.311a3.7044,3.7044,0,0,1-1.5177-1.3934,4.0574,4.0574,0,0,1,0-4.04,3.7054,3.7054,0,0,1,1.5177-1.3934,5.2571,5.2571,0,0,1,4.4858,0,3.7081,3.7081,0,0,1,1.5177,1.3934,4.0574,4.0574,0,0,1,0,4.04,3.7072,3.7072,0,0,1-1.5177,1.3934,5.2571,5.2571,0,0,1-4.4858,0Zm3.8073-.8651A2.6148,2.6148,0,0,0,46.4643,30.41a3.2947,3.2947,0,0,0,0-3.0252,2.6161,2.6161,0,0,0-1.0412-1.0361,3.468,3.468,0,0,0-3.1287,0,2.6124,2.6124,0,0,0-1.0412,1.0361,3.2947,3.2947,0,0,0,0,3.0252,2.6111,2.6111,0,0,0,1.0412,1.0359,3.4668,3.4668,0,0,0,3.1287,0Z" fill="#231f20"/></svg>
+                </div>
               </div>
-            </s72-dropdown>
-          {{else}}
-            <div class="nav-item {{len(.Link.ExternalURL) == 0 && routeToSlug(.Link.Slug) == currentUrlPath ? "active" : ""}}">
-              <a class="nav-link" href="{{ len(.Link.ExternalURL) > 0 ? .Link.ExternalURL : routeToSlug(.Link.Slug) }}">{{ .Label }}</a>
             </div>
-          {{end}}
-        {{end}}
+            <div class="col-12 col-md-10 -nav-column">
+              <div class="-main-nav --sff" data-widget="horizontalMenu">
+                
+                <!-- REPLACE THIS WITH DYNAMIC -->
+                <div class="menu-sydney-film-festival-container"><ul id="menu-sydney-film-festival" class="menu"><li id="menu-item-8403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8403 current-menu-item"><a title="Festival Info" href="/info/" draggable="false">Festival Info</a><ul class="sub-menu"><li id="menu-item-10601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10601"><a title="Blog" href="/info/blog/" draggable="false">Blog</a></li><li id="menu-item-8406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8406"><a title="Galleries" href="/info/galleries/" draggable="false">Galleries</a></li><li id="menu-item-8405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8405"><a title="Access and Inclusion" href="/info/access/" draggable="false">Access and Inclusion</a></li></ul></li><li id="menu-item-8408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8408"><a title="Initiatives" href="/initiatives/" draggable="false">Initiatives</a><ul class="sub-menu"><li id="menu-item-12165" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12165"><a title="We Are One: A Global Film Festival" href="/initiatives/we-are-one/" draggable="false">We Are One: A Global Film Festival</a></li><li id="menu-item-12166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12166"><a title="Reverse Shot" href="/initiatives/reverse-shot/" draggable="false">Reverse Shot</a></li><li id="menu-item-10091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10091"><a title="5050×2020" href="/initiatives/5050x2020/" draggable="false">5050×2020</a></li><li id="menu-item-8410" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8410"><a title="Travelling Film Festival" href="/tff/" draggable="false">Travelling Film Festival</a></li><li id="menu-item-747" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-747"><a title="Year-Round" href="/initiatives/year-round-events/" draggable="false">Year-Round</a></li><li id="menu-item-11765" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11765"><a title="Past Initiatives" href="/initiatives/past-initiatives/" draggable="false">Past Initiatives</a></li></ul></li><li id="menu-item-996" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-996"><a title="Support Us" href="https://www.sff.org.au/support-us/support/" draggable="false">Support Us</a><ul class="sub-menu"><li id="menu-item-987" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-987"><a title="Support" href="/support-us/support/" draggable="false">Support</a></li><li id="menu-item-556" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-556"><a title="Donate Now" href="/support-us/donate-now/" draggable="false">Donate Now</a></li><li id="menu-item-3815" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3815"><a title="Individual Support" href="/support-us/individual-support/" draggable="false">Individual Support</a></li><li id="menu-item-558" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-558"><a title="Partnerships" href="/support-us/partnerships/" draggable="false">Partnerships</a></li></ul></li><li id="menu-item-239" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-239"><a title="About" rel="page" href="https://www.sff.org.au/about/our-organisation/" draggable="false">About</a><ul class="sub-menu"><li id="menu-item-740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-740"><a title="Our Organisation" href="/about/our-organisation/" draggable="false">Our Organisation</a></li><li id="menu-item-4479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4479"><a title="Jobs" href="/about/our-organisation/jobs/" draggable="false">Jobs</a></li><li id="menu-item-4429" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4429"><a title="Submissions" href="/about/submissions/" draggable="false">Submissions</a></li><li id="menu-item-2197" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2197"><a title="Media Releases" href="/about/media-releases/" draggable="false">Media Releases</a></li><li id="menu-item-745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-745"><a title="Living Archive" href="http://online.sffarchive.org.au/#folio=1" draggable="false">Living Archive</a></li><li id="menu-item-7428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7428"><a title="Galleries" href="/info/galleries/" draggable="false">Galleries</a></li><li id="menu-item-741" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-741"><a title="Contact Us" href="/about/contact-us/" draggable="false">Contact Us</a></li></ul></li></ul></div>
+
+                <div class="-search-toggle" data-widget="searchToggle">
+                  <svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1">
+                      <path d="M20.3198574,18.9056439 L25.2426407,23.8284271 C25.633165,24.2189514 25.633165,24.8521164 25.2426407,25.2426407 C24.8521164,25.633165 24.2189514,25.633165 23.8284271,25.2426407 L18.9056439,20.3198574 C17.5509601,21.3729184 15.8487115,22 14,22 C9.581722,22 6,18.418278 6,14 C6,9.581722 9.581722,6 14,6 C18.418278,6 22,9.581722 22,14 C22,15.8487115 21.3729184,17.5509601 20.3198574,18.9056439 Z M14,20 C17.3137085,20 20,17.3137085 20,14 C20,10.6862915 17.3137085,8 14,8 C10.6862915,8 8,10.6862915 8,14 C8,17.3137085 10.6862915,20 14,20 Z"></path>
+                    </g>
+                  </svg>
+                </div>
+
+              </div>
+              <section class="-user-menu" data-widget="userMenu">
+                <div class="-donate-button">
+                  <a class="button --donate cart-icon" href="/donate" title="View your cart" data-widget="launchDonateOverlay">
+                    Donate
+                  </a>
+                </div>
+                <div class="-item --mobile-search-trigger" data-widget="searchToggle">
+                  <a class="search-icon">
+                    <?=headerSVG("icon-search")?>
+                  </a>
+                </div>
+                <div class="sff-s72-user-menu">
+                  <s72-user-anon>
+                    <a class="btn btn-signin" href="/signin.html?from={{currentUrlPath|url}}">{{i18n("nav_signin")}}</a>
+                    {{if config("disable_user_signups") != "true"}}
+                      <a class="btn btn-signup" href="/signup.html?from={{currentUrlPath|url}}">{{i18n("nav_signup")}}</a>
+                    {{end}}
+                  </s72-user-anon>
+
+                  <s72-user-known>
+                    <s72-dropdown class="navbar-nav-user-nav">
+                      <a href="#" class="s72-btn s72-dropdown-toggle">
+                        <span class="sff-account-icon"></span>
+                        {{i18n("nav_signed_in_as")}} <s72-username></s72-username>
+                      </a>
+                      <div class="s72-dropdown-menu s72-dropdown-menu-right">
+                        <a class="s72-dropdown-item" href="/library.html">{{i18n("nav_library")}}</a>
+                        <a class="s72-dropdown-item" href="/devices.html">{{i18n("nav_devices")}}</a>
+                        <a class="s72-dropdown-item" href="/account.html">{{i18n("nav_account")}}</a>
+                        <a class="s72-dropdown-item" href="/pin.html">{{i18n("nav_activate")}}</a>
+                        <s72-sign-out class="s72-dropdown-item">{{i18n("nav_signout")}}</s72-sign-out>
+                      </div>
+                    </s72-dropdown>
+                  </s72-user-known>
+                </div>
+                <div class="-item mobile-menu-item" data-widget="mobileMenuToggle">
+                  <a class="mobile-menu-icon" title="Menu">
+                    <svg width="24px" height="14px" viewBox="0 0 24 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g fill-rule="evenodd"><g transform="translate(-316.000000, -24.000000)"><g transform="translate(316.000000, 24.000000)"><rect x="0" y="0" width="24" height="2" rx="1"></rect><rect x="0" y="6" width="24" height="2" rx="1"></rect><rect x="0" y="12" width="24" height="2" rx="1"></rect></g></g></g></svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="navbar-nav">
-        <a href="/search.html" class="btn-navbar-search">
-          <i class="icon-search"></i>
-          <span class="navbar-search-label">{{i18n("search_control_placeholder")}}</span>
-        </a>
-
-        <s72-user-anon>
-          <a class="btn btn-signin" href="/signin.html?from={{currentUrlPath|url}}">{{i18n("nav_signin")}}</a>
-          {{if config("disable_user_signups") != "true"}}
-            <a class="btn btn-signup" href="/signup.html?from={{currentUrlPath|url}}">{{i18n("nav_signup")}}</a>
-          {{end}}
-        </s72-user-anon>
-
-        <s72-user-known>
-          <s72-dropdown class="navbar-nav-user-nav">
-            <a href="#" class="s72-btn s72-dropdown-toggle">{{i18n("nav_signed_in_as")}} <s72-username></s72-username></a>
-            <div class="s72-dropdown-menu s72-dropdown-menu-right">
-              <a class="s72-dropdown-item" href="/library.html">{{i18n("nav_library")}}</a>
-              <a class="s72-dropdown-item" href="/devices.html">{{i18n("nav_devices")}}</a>
-              <a class="s72-dropdown-item" href="/account.html">{{i18n("nav_account")}}</a>
-              <a class="s72-dropdown-item" href="/pin.html">{{i18n("nav_activate")}}</a>
-              <s72-sign-out class="s72-dropdown-item">{{i18n("nav_signout")}}</s72-sign-out>
+      <div class="-secondary-bar --enabled">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-md-10 offset-md-2">
+              <div class="-inner" data-widget="horizontalMenu">
+                <ul class="sub-menu">
+                  <li id="menu-item-10601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10601"><a title="Blog" href="/info/blog/" draggable="false">Blog</a></li>
+                  <li id="menu-item-8406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8406"><a title="Galleries" href="/info/galleries/" draggable="false">Galleries</a></li>
+                  <li id="menu-item-8405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8405"><a title="Access and Inclusion" href="/info/access/" draggable="false">Access and Inclusion</a></li>
+                </ul>
+              </div>
             </div>
-          </s72-dropdown>
-        </s72-user-known>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </header>
 {{end}}

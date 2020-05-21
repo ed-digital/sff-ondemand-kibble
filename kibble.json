@@ -1,7 +1,7 @@
 {
   "name": "kibble-template-tvod",
   "version": "0.0.27",
-  "siteUrl": "https://store.shift72.com/",
+  "siteUrl": "https://ondemand.sff.org.au",
   "builderVersion": "0.10.16",
   "defaultLanguage": "en",
   "languages": {
