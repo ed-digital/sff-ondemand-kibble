@@ -1,3 +1,15 @@
+@mixin play-button-before($color: "white") {
+  content: " ";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: no-repeat center center;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L16 8L0 16V0Z' fill='#{$color}'/%3E%3C/svg%3E%0A");
+  vertical-align: middle;
+  margin-right: 9px;
+  margin-left: -5px;
+}
+
 .sff-s72-user-menu {
   margin-left: 11px;
   .sff-account-icon {
@@ -75,6 +87,13 @@
   .current-menu-item {
     font-weight: bold;
   }
+
+  .-donate-button {
+    a:hover {
+      text-decoration: none;
+      transform: none !important;
+    }
+  }
 }
 
 .poster {
@@ -84,6 +103,30 @@
 .meta-item-landscape {
   .meta-item-caption {
     padding-top: 12px;
+  }
+
+  .-status-text {
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+    z-index: 20;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px 5px;
+
+    s72-availability-label,
+    s72-availability-status {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .availability-bg {
+      padding: 0 !important;
+      background: transparent !important;
+    }
   }
 
   .meta-item-link {
@@ -111,6 +154,11 @@
 
     .-text {
       margin-right: 6px;
+
+      b,
+      strong {
+        font-weight: normal;
+      }
     }
 
     .-runtime {
@@ -142,6 +190,10 @@
   a:hover {
     s72-image {
       transform: scale(1.06);
+    }
+
+    .-status-text {
+      display: none !important;
     }
   }
 
@@ -175,6 +227,43 @@
   }
 
   a:hover meta-item-body {
+  }
+}
+
+.s72-userwishlist-buttons {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 10;
+
+  button {
+    padding: 0;
+    width: 16px;
+    height: 16px;
+    background: no-repeat center center;
+    outline: none !important;
+    box-shadow: none !important;
+
+    .s72-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 16px;
+      height: 16px;
+
+      &.s72-icon-wishlist-add {
+        background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 16 16' style='enable-background:new 0 0 16 16;' xml:space='preserve'%3E%3Cpath style='fill: white' d='M14,16l-5.5-3L3,16V1h11V16z M8.5,11.9l4.5,2.5V2H4v12.3L8.5,11.9z'%3E%3C/path%3E%3C/svg%3E");
+      }
+
+      &.s72-icon-wishlist-remove {
+        background-image: url("data:image/svg+xml, %3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 16 16' style='enable-background:new 0 0 16 16;' xml:space='preserve'%3E%3Cpath style='fill: white' d='M3,1v15l5.5-3l5.5,3V1H3z M7.5,10.2L5.3,8L6,7.3l1.5,1.5l4-4l0.7,0.7L7.5,10.2z' /%3E%3Cpolygon style='fill: black;' points='12.2,5.5 7.5,10.2 5.3,8 6,7.3 7.5,8.8 11.5,4.8 '/%3E%3C/svg%3E");
+      }
+    }
+
+    &:hover {
+      transform: none !important;
+    }
   }
 }
 
@@ -243,15 +332,7 @@
           color: black;
 
           &:before {
-            content: " ";
-            display: inline-block;
-            width: 1em;
-            height: 1em;
-            background: no-repeat center center;
-            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L16 8L0 16V0Z' fill='%23170C66'/%3E%3C/svg%3E%0A");
-            vertical-align: middle;
-            margin-right: 9px;
-            margin-left: -5px;
+            @include play-button-before;
           }
         }
       }
@@ -343,17 +424,40 @@
 .dropdown-menu,
 .s72-dropdown-menu {
   border-radius: 0;
+  font-size: 14px;
 
-  .s72-dropdown-item {
+  .current-user-info {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+
+    em {
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.01em;
+      font-style: normal;
+    }
+  }
+
+  .s72-dropdown-ite,
+  a.dropdown-item {
     color: black !important;
     transition: none !important;
-    font-size: 16px;
+    font-size: inherit;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 1em;
+    // max-width: 400px;
+    // white-space: normal;
 
     &:hover {
       background: #170c66;
       color: white !important;
     }
   }
+}
+
+#header .s72-dropdown-menu {
 }
 
 input[type="radio"],
@@ -364,5 +468,79 @@ input[type="checkbox"] {
 .s72-shopping-modal-header-title {
   .s72-btn-close {
     color: black;
+  }
+}
+
+.s72-program-strand-header {
+  h1 {
+    font-weight: bold;
+    margin-top: 40px !important;
+    margin-bottom: 30px !important;
+  }
+}
+
+.page-content {
+  p {
+    margin-bottom: 0.8em;
+  }
+}
+
+.s72-btn-play .s72-btn-play-icon {
+  display: none !important;
+}
+
+.s72-btn-play {
+  color: white !important;
+
+  &:before {
+    @include play-button-before;
+  }
+}
+
+.single-event .-trailer-buttons .-trailer-button {
+  &:before {
+    display: none !important;
+  }
+}
+
+.related-film-slider {
+  h4 {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+}
+
+.bundle-intro-text {
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+
+.s72-userlibrary-items {
+  display: flex;
+  flex-wrap: wrap;
+
+  > .meta-item {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  @media screen and (min-width: 700px) {
+    margin-left: -20px;
+
+    > .meta-item {
+      width: calc((100% - 20px - 20px) / 2);
+      margin-left: 20px;
+    }
+  }
+
+  @media screen and (min-width: 1150px) {
+    margin-left: -20px;
+
+    > .meta-item {
+      width: calc((100% - 20px * 3 - 20px) / 4);
+      margin-left: 20px;
+    }
   }
 }

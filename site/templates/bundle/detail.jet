@@ -8,59 +8,49 @@
 {{end}}
 
 {{block body()}}
-  <div class="page page-bundle meta-detail meta-detail-bundle">
 
-    <div class="meta-detail-bg">
-      <div class="meta-detail-bg-gradient"></div>
-      <s72-image src="{{bundle.Images.Background}}" class="meta-detail-bg-img"></s72-image>
-    </div>
-
+  <div class="single-strand">
     <div class="container">
-      <s72-availability-status data-slug="{{bundle.Slug}}" class="meta-detail-availability-status"></s72-availability-status>
-      <s72-availability-label data-slug="{{bundle.Slug}}" class="meta-detail-availability-label"></s72-availability-label>
+      <div class="row">
 
-      {{if len(bundle.PromoURL) > 0 }}
-        <div class="meta-detail-watch-buttons">
-          <s72-modal-player src="{{bundle.PromoURL}}" data-slug="{{bundle.Slug}}" data-label="{{i18n("play_trailer")}}"></s72-modal-player>
-        </div>
-      {{end}}
-
-      <div class="meta-detail-main">
-
-        <div class="meta-detail-panel">
-          <div class="poster poster-portrait">
-            <s72-availability-status data-slug="{{bundle.Slug}}"></s72-availability-status>
-            <s72-availability-label data-slug="{{bundle.Slug}}"></s72-availability-label>
-            <s72-image src="{{bundle.Images.Portrait}}" alt="{{bundle.Title}}" class="poster poster-image poster-image-portrait"></s72-image>
-          </div>
+        <div class="col-12 col-md-10 offset-md-2 s72-program-strand-header">
+          <h1>{{ bundle.Title }}</h1>
         </div>
 
-        <div class="meta-detail-content">
-          <h1 class="meta-detail-title">{{bundle.Title}}</h1>
-          <div class="meta-detail-tagline">
+        <div class="col-12 col-md-6 offset-md-2">
+          <!--<div class="meta-detail-tagline">
             {{yield metaItemTagline(classification=false) bundle}}
-          </div>
+          </div>-->
 
           <div class="meta-detail-buttons">
             <s72-pricing-buttons data-slug="{{bundle.Slug}}" data-title="{{bundle.Title}}"></s72-pricing-buttons>
           </div>
 
-          <div class="meta-detail-synopsis">{{bundle.Description | raw}}</div>
+          {{ parts := split(bundle.Description, "%%%")}}
+          {{ if len(parts) == 3 }}
+            <div class="bundle-intro-text">
+              {{ parts[0] | raw }}
+            </div>
 
-          {{if len(bundle.Items) > 0 }}
-            <div class="meta-detail-bundle-items">
-              <h3>{{i18n("meta_detail_bundle_items_title")}}</h3>
-              {{yield slider(itemsPerRow=6, itemLayout="portrait") content}}
-                {{range item := bundle.Items}}
-                  <div class="slider-item slider-item-6">
-                    {{yield metaItem(item=item, layout="portrait")}}
-                  </div>
-                {{end}}
+            <div class="rich-text">{{parts[2] | raw}}</div>
+
+          {{ end }}
+        </div>
+
+        <div class="col-12 mt-5">
+
+
+          {{ if len(bundle.Items) > 0 }}
+            <div class="row">
+              {{range item := bundle.Items}}
+                <div class="col-12 col-sm-6 col-md-3 mb-5">
+                  {{yield metaItem(item=item, layout="landscape")}}
+                </div>
               {{end}}
             </div>
-          {{end}}
+          {{ end }}
 
-          {{if isset(bundle.Recommendations) && len(bundle.Recommendations) > 0 }}
+          <!--{{if isset(bundle.Recommendations) && len(bundle.Recommendations) > 0 }}
             <div class="meta-detail-recommendations">
               <h3>{{i18n("meta_detail_recommendations_title")}}</h4>
               {{yield slider(itemsPerRow=6, itemLayout="portrait") content}}
@@ -71,9 +61,10 @@
                 {{end}}
               {{end}}
             </div>
-          {{end}}
+          {{end}} -->
 
         </div>
+
       </div>
     </div>
   </div>

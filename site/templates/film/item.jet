@@ -70,9 +70,7 @@
         <div class="row">
           <div class="col-12 col-md-3 offset-md-2">
             <div class="-trailer-buttons">
-              <s72-cant-be-watched data-slug="{{film.Slug}}">
-                <s72-modal-player src="{{film.Trailers[0].URL}}" data-slug="{{film.Slug}}" class="-trailer-button --trailer" data-label="{{i18n("play_trailer")}}" autoplay="querystring"></s72-modal-player>
-              </s72-cant-be-watched>
+              <s72-modal-player src="{{film.Trailers[0].URL}}" data-slug="{{film.Slug}}" class="-trailer-button --trailer" data-label="{{i18n("play_trailer")}}" autoplay="querystring"></s72-modal-player>
             </div>
           </div>
         </div>
@@ -95,10 +93,15 @@
             {{ if film.Runtime > 0 }}
               <span class="-item">{{film.Runtime}} minutes</span>
             {{ end }}
+
+            {{ if film.Classifications }}
+              <dd class="-item">{{ film.Classifications[0].Label }}</dd>
+            {{ end }}
           </div>
         </div>
         <div class="col-12 col-md-3 -rent-button">
           <s72-pricing-buttons data-slug="{{film.Slug}}" data-title="{{film.Title}}"></s72-pricing-buttons>
+          <s72-play-button data-slug="{{film.Slug}}" class="btn-play-square-lg" data-title="{{film.Title}}"></s72-play-button>
         </div>
       </div>
 
@@ -119,7 +122,6 @@
                 {{parts[2] | raw}}
 
               {{ end }}
-
               
             </div>
           </div>
@@ -133,7 +135,17 @@
 
               {{ yield filmAttributeDisplay(name="Program Strand", film=film) }}
               {{ yield filmAttributeDisplay(name="Year", film=film) }}
-              {{ yield filmAttributeDisplay(name="Classification", film=film) }}
+
+              {{ if film.Classifications }}
+                <dt class="-name">Classification</dt>
+                <dd class="-value">
+                {{ film.Classifications[0].Label }}
+                {{ if film.Classifications[0].Label != film.Classifications[0].Description }}
+                  ({{ film.Classifications[0].Description }})
+                {{ end }}
+                </dd>
+              {{ end }}
+
               {{ yield filmAttributeDisplay(name="Country", film=film) }}
               {{ yield filmAttributeDisplay(name="Language", film=film) }}
               {{ yield filmAttributeDisplay(name="Premiere Status", film=film) }}
@@ -147,6 +159,21 @@
               {{ yield filmAttributeDisplay(name="Company Credits", film=film) }}
               {{ yield filmAttributeDisplay(name="Co-Director", film=film) }}
 
+            </dl>
+          {{end}}
+        </div>
+
+        <div class="related-film-slider col-12 pt-5">
+          <h4 class="pb-3">You may also enjoy</h4>
+          {{if len(film.Recommendations) > 0 }}
+            <div class="meta-detail-recommendations">
+              {{yield slider(itemsPerRow=6, itemLayout="landscape") content}}
+                {{range item := film.Recommendations}}
+                  <div class="slider-item slider-item-4">
+                    {{yield metaItem(item=item, layout="landscape")}}
+                  </div>
+                {{end}}
+              {{end}}
             </div>
           {{end}}
         </div>

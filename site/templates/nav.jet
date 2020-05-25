@@ -63,8 +63,8 @@
                     </a>
                     <div class="s72-dropdown-menu s72-dropdown-menu-right">
                       <s72-user-known>
-                        <div>
-                          {{i18n("nav_signed_in_as")}} <s72-username></s72-username>
+                        <div class="current-user-info">
+                          <em>{{i18n("nav_signed_in_as")}}</em> <s72-username></s72-username>
                         </div>
                         <a class="s72-dropdown-item" href="/library.html">{{i18n("nav_library")}}</a>
                         <a class="s72-dropdown-item" href="/devices.html">{{i18n("nav_devices")}}</a>

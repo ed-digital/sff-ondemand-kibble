@@ -29,8 +29,12 @@
       <div class="poster poster-{{layout}}">
         <s72-playback-progress slug="{{item.Slug}}"></s72-playback-progress>
 
-        <s72-availability-status data-slug="{{item.Slug}}"></s72-availability-status>
-        <s72-availability-label data-slug="{{item.Slug}}"></s72-availability-label>
+        <div class="-status-text">
+          <s72-availability-status data-slug="{{item.Slug}}"></s72-availability-status>
+          <s72-availability-label data-slug="{{item.Slug}}"></s72-availability-label>
+        </div>
+        
+        <s72-userwishlist-button slug="{{item.Slug}}"></s72-userwishlist-button>
         
         <s72-image src="{{imageUrl}}" alt="{{item.GetTranslatedTitle(i18n, "")}}" class="poster-image poster-image-{{layout}}" border="0"></s72-image>
 
@@ -65,6 +69,16 @@
   {{end}}
   {{ if isset(item.InnerItem["Overview"])}}
     {{ parts := split(item.InnerItem.Overview, "%%%" )}}
-    <span class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</span>
+    {{ if len(parts) == 3 }}
+      <span class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</span>
+    {{ end }}
+  {{ end }}
+  {{ if isset(item.InnerItem["Description"])}}
+    <!-- A 'Bundle' tile -->
+    <span class="-genre-name">Bundle</span>
+    {{ parts := split(item.InnerItem.Description, "%%%" )}}
+    {{ if len(parts) == 3 }}
+      <span class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</span>
+    {{ end }}
   {{ end }}
 {{end}}

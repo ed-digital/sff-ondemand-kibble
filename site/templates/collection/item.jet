@@ -2,17 +2,28 @@
 {{import "./page_collection_item.jet"}}
 
 {{block body()}}
-  <div class="page collection-page">
+  <div class="single-strand">
     <div class="container">
-      <div class="page-header">
-        <h1>{{ collection.Title }}</h1>
-      </div>
+      <div class="row">
 
-      {{if len(collection.Description)}}
-      <div class="page-content collection-content">
-        {{collection.Description | raw}}
+        <div class="col-12 col-md-8 offset-md-2 s72-program-strand-header">
+          <h1>{{ collection.Title }}</h1>
+        </div>
+
+        <div class="col-12 col-md-6 offset-md-2 pb-5">
+          {{ parts := split(collection.Description, "%%%")}}
+          {{ if len(parts) == 3 }}
+            <div class="bundle-intro-text">
+              {{ parts[0] | raw }}
+            </div>
+
+            <div class="rich-text">{{parts[2] | raw}}</div>
+          {{ else }}
+            <div class="rich-text">{{collection.Description | raw}}</div>
+          {{ end }}
+        </div>
+
       </div>
-      {{end}}
     </div>
 
     <div class="container">

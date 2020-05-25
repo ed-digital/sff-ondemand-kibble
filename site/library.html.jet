@@ -5,13 +5,20 @@
 {{end}}
 
 {{block body()}}
-<div class="container page">
+  <div class="single-strand">
+    <div class="container">
+      <div class="row">
 
-  <div class="page-header text-center">
-    <h2>{{ i18n("userlibrary_page_header") }}</h2>
+        <div class="col-12 col-md-10 offset-md-2 s72-program-strand-header">
+          <h1>My Library</h1>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 mt-5">
+          <s72-userlibrary signin-url="/signin.html" partials-base-path="/partials" />
+        </div>
+      </div>
+    </div>
   </div>
-
-  <s72-userlibrary signin-url="/signin.html" partials-base-path="/partials" />
-
-</div>
 {{end}}

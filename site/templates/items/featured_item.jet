@@ -23,7 +23,19 @@
                 {{yield metaItemTagline() item.InnerItem}}
               </div>
               <div class="-text">
-                {{ item.InnerItem["Tagline"] }}
+                {{ if isset(item.InnerItem["Overview"])}}
+                  {{ parts := split(item.InnerItem.Overview, "%%%" )}}
+                  {{ if len(parts) == 3 }}
+                    <span class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</span>
+                  {{ end }}
+                {{ end }}
+                {{ if isset(item.InnerItem["Description"])}}
+                  <!-- A 'Bundle' tile -->
+                  {{ parts := split(item.InnerItem.Description, "%%%" )}}
+                  {{ if len(parts) == 3 }}
+                    <span class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</span>
+                  {{ end }}
+                {{ end }}
               </div>
             {{end}}
 
