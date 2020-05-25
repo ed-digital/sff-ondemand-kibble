@@ -58,7 +58,7 @@
       <div class="container">
         <div class="row">
           <div class="-single col-12 col-md-10 offset-md-2">
-            <s72-image src="{{film.Images.Background}}" class="meta-detail-bg-img"></s72-image>
+            <s72-image src="{{film.Images.Landscape}}" class="meta-detail-bg-img"></s72-image>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
     <!-- Session Header -->
     <div class="container">
       <div class="row">
-        <div class="-session-header col-12 col-sm-8 col-md-10 offset-md-2">
+        <div class="-session-header col-12 col-md-7 offset-md-2">
           <h1>{{ film.Title }}</h1>
 
           <div class="-quick-metas">
@@ -97,26 +97,36 @@
             {{ end }}
           </div>
         </div>
+        <div class="col-12 col-md-3 -rent-button">
+          <s72-pricing-buttons data-slug="{{film.Slug}}" data-title="{{film.Title}}"></s72-pricing-buttons>
+        </div>
       </div>
 
       <div class="row">
 
         <!-- Main Text Content -->
-        <div class="col-12 col-sm-6 offset-sm-2">
+        <div class="col-12 col-md-6 offset-md-2">
 
           <div class="-content">
             <div class="rich-text" data-fade-children="true">
-              <div class="-intro-text">
-                {{film.Tagline}}
-              </div>
 
-              {{film.Overview | raw}}
+              {{ parts := split(film.Overview, "%%%")}}
+              {{ if len(parts) == 3 }}
+                <div class="-intro-text">
+                  {{ parts[0] | raw }}
+                </div>
+
+                {{parts[2] | raw}}
+
+              {{ end }}
+
+              
             </div>
           </div>
         </div>
 
         <!-- Sidebar -->
-        <div class="col-12 col-sm-3 offset-sm-1">
+        <div class="col-12 col-md-3 offset-md-1">
           {{if len(film.Crew) > 0}}
 
             <dl class="event-attributes">

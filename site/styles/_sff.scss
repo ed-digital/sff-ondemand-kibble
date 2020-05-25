@@ -1,4 +1,5 @@
 .sff-s72-user-menu {
+  margin-left: 11px;
   .sff-account-icon {
     background: no-repeat center center / cover;
     background-image: url("data:image/svg+xml,%3Csvg width='32px' height='32px' viewBox='0 0 32 32' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1'%3E%3Cpath fill='%23000000' class='primary-color' d='M13,18 L19,18 C22.3137085,18 25,20.6862915 25,24 L25,26 C25,26.5522847 24.5522847,27 24,27 L8,27 C7.44771525,27 7,26.5522847 7,26 L7,24 C7,20.6862915 9.6862915,18 13,18 Z M16,16 C13.2385763,16 11,13.7614237 11,11 C11,8.23857625 13.2385763,6 16,6 C18.7614237,6 21,8.23857625 21,11 C21,13.7614237 18.7614237,16 16,16 Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
@@ -52,6 +53,16 @@
       }
     }
   }
+
+  .-rent-button {
+    display: flex;
+    align-items: flex-end;
+
+    .s72-btn-rent {
+      background: #ffed00;
+      color: #170c66;
+    }
+  }
 }
 
 #header {
@@ -59,5 +70,299 @@
     a {
       color: white;
     }
+  }
+
+  .current-menu-item {
+    font-weight: bold;
+  }
+}
+
+.poster {
+  border-radius: 0;
+}
+
+.meta-item-landscape {
+  .meta-item-caption {
+    padding-top: 12px;
+  }
+
+  .meta-item-link {
+    display: block !important;
+  }
+
+  .meta-item-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px;
+    // margin-top: 5px;
+    margin-bottom: 7px;
+    color: #000000;
+  }
+
+  .meta-item-description {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.333;
+
+    .-genre-name {
+      font-weight: bold;
+      margin-right: 4px;
+    }
+
+    .-text {
+      margin-right: 6px;
+    }
+
+    .-runtime {
+      color: rgba(0, 0, 0, 0.6);
+
+      &:after {
+        content: " ";
+        display: inline-block;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .poster-landscape {
+    padding-top: 56.41025641%;
+    background: rgba(0, 0, 0, 0.05);
+
+    s72-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      transition: transform 1s cubic-bezier(0.5, 1, 0.89, 1);
+    }
+  }
+
+  a:hover {
+    s72-image {
+      transform: scale(1.06);
+    }
+  }
+
+  .meta-item-body {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 40%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 1;
+  }
+
+  .s72-btn-rent {
+    background: black;
+    color: white;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    height: auto;
+    line-height: 1.9em;
+    font-size: 12px;
+    padding: 0 9px;
+    transition: none;
+
+    &:hover {
+      // background: blue;
+      background: #ffed00;
+      color: #170c66;
+    }
+  }
+
+  a:hover meta-item-body {
+  }
+}
+
+.film-grid-item {
+  margin-bottom: 50px;
+}
+
+.carousel-bg {
+  background: #170c66;
+
+  .s72-carousel-control {
+    display: none;
+  }
+}
+
+.homepage-slider-tile {
+  .-contents {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .container {
+      .-inner {
+        width: 50%;
+      }
+    }
+
+    .-title {
+      font-family: "Agrandir-Narrow";
+      color: #00ffff;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .-meta {
+      color: #00ffff;
+      text-transform: uppercase;
+      // font-weight: bold;
+      font-size: 12px;
+      padding-top: 8px;
+      padding-bottom: 20px;
+      line-height: 1;
+      letter-spacing: 0.1em;
+    }
+
+    .-text {
+      color: white;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .-buttons {
+      .button {
+        margin-right: 8px;
+
+        &.--trailer {
+          background-color: #00ffff;
+          color: black;
+
+          &:before {
+            content: " ";
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background: no-repeat center center;
+            background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0L16 8L0 16V0Z' fill='%23170C66'/%3E%3C/svg%3E%0A");
+            vertical-align: middle;
+            margin-right: 9px;
+            margin-left: -5px;
+          }
+        }
+      }
+
+      .s72-btn-rent {
+        margin-right: 8px;
+        background: yellow;
+        color: black;
+      }
+    }
+  }
+
+  .-image-wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 25%;
+
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 20%;
+      z-index: 2;
+      background: linear-gradient(
+        to right,
+        rgba(23, 12, 102, 1),
+        rgba(23, 12, 102, 0)
+      );
+    }
+
+    .-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+}
+
+.s72-carousel-slides {
+  height: 60vw !important;
+  margin-bottom: 2vw;
+
+  .-text {
+    display: none;
+  }
+
+  .-buttons {
+    display: none;
+  }
+
+  @media (min-width: 500px) {
+    height: 50vw !important;
+
+    .-title {
+      font-size: 32px;
+    }
+
+    .-text {
+      display: block;
+    }
+
+    .-buttons {
+      display: flex;
+    }
+  }
+
+  @media (min-width: 900px) {
+    .container {
+      .-title {
+        font-size: 48px;
+      }
+
+      .-inner {
+        width: 30%;
+      }
+    }
+  }
+}
+
+.dropdown-menu,
+.s72-dropdown-menu {
+  border-radius: 0;
+
+  .s72-dropdown-item {
+    color: black !important;
+    transition: none !important;
+    font-size: 16px;
+
+    &:hover {
+      background: #170c66;
+      color: white !important;
+    }
+  }
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline-block !important;
+}
+
+.s72-shopping-modal-header-title {
+  .s72-btn-close {
+    color: black;
   }
 }

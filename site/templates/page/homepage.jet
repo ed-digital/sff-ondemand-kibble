@@ -20,7 +20,7 @@
 
   <div class="page page-{{page.PageType|lower}} homepage">
 
-    <div class="container">
+    <div class="carousel-bg">
       {{yield pageCollectionCarousel() page.PageCollections[0]}}
     </div>
 

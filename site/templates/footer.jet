@@ -1,6 +1,153 @@
 {{block footer()}}
 <footer>
 
+  <div id="site-footer">
+
+
+    <div class="subscribe-banner" data-widget="subscribe">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-3 col-md-2">
+            <h2 class="-title">
+              Stay Updated
+            </h2>
+            <p class="-description">Join our newsletter</p>
+          </div>
+          <div class="col-10 col-small-9 col-tiny-12">
+            <div class="row">
+              <div class="col-4 col-small-3 col-tiny-12">
+                <div class="select-wrapper">
+                  <select name="list">
+                    <option value="abc4e17558" data-base-url="https://sff.us15.list-manage.com/subscribe/post-json?u=e7c715dbcdaa7723c89fb820d" data-list-id="abc4e17558" data-centre-slug="">Sydney Film Festival Newsletter</option>
+                    <option value="00140b4cc5" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="00140b4cc5" data-centre-slug="alice-springs">TFF Alice Springs Newsletter</option>
+                    <option value="e06e4b576a" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="e06e4b576a" data-centre-slug="tff-at-sea">TFF At Sea Newsletter</option>
+                    <option value="4750e6a4f4" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="4750e6a4f4" data-centre-slug="bundaberg">TFF Bundaberg Newsletter</option>
+                    <option value="656069ad5e" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="656069ad5e" data-centre-slug="cairns">TFF Cairns Newsletter</option>
+                    <option value="16c6b0841e" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="16c6b0841e" data-centre-slug="darwin">TFF Darwin Newsletter</option>
+                    <option value="479ca718fe" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="479ca718fe" data-centre-slug="huskisson">TFF Huskisson Newsletter</option>
+                    <option value="e1b9856f0e" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="e1b9856f0e" data-centre-slug="katherine">TFF Katherine Newsletter</option>
+                    <option value="f5185ae126" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="f5185ae126" data-centre-slug="mackay">TFF Mackay Newsletter</option>
+                    <option value="bf5702d1ff" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="bf5702d1ff" data-centre-slug="">TFF Mid North Coast Newsletter</option>
+                    <option value="757c364199" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="757c364199" data-centre-slug="nambour">TFF Nambour Newsletter</option>
+                    <option value="7095a5ede7" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="7095a5ede7" data-centre-slug="newcastle">TFF Newcastle Newsletter</option>
+                    <option value="f43f0652ea" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="f43f0652ea" data-centre-slug="tamworth">TFF Tamworth Newsletter</option>
+                    <option value="e63533d255" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="e63533d255" data-centre-slug="toowoomba">TFF Toowoomba Newsletter</option>
+                    <option value="33ac62f156" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="33ac62f156" data-centre-slug="townsville">TFF Townsville Newsletter</option>
+                    <option value="a0d3cfdf4a" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="a0d3cfdf4a" data-centre-slug="ulladulla">TFF Ulladulla Newsletter</option>
+                    <option value="dc74f023ac" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="dc74f023ac" data-centre-slug="wagga-wagga">TFF Wagga Wagga Newsletter</option>
+                    <option value="e67c0a14f5" data-base-url="https://sff.us16.list-manage.com/subscribe/post-json?u=17e847548eced1f84f0efc9fa" data-list-id="e67c0a14f5" data-centre-slug="wollongong">TFF Wollongong Newsletter</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-4 col-small-3 col-tiny-12">
+                <input type="email" name="email" class="email-input" placeholder="Email address">
+              </div>
+              <div class="col-2 col-small-3 col-tiny-12 -submit-column">
+                <button type="submit" class="button">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row menu footer-menu">
+        <div class="col-6 col-sm-4 col-md-2 -accessibility">
+          <a href="/info/access">
+            <div class="header-link">
+              Accessibility
+            </div>
+            <div>
+              <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/access.svg">
+            </div>
+          </a>
+        </div>
+        <ul class="col-6 col-sm-4 col-md-2 -primary-menu level-0">
+          <li class="header-link">
+            <a href="https://www.sff.org.au/about/">About</a>
+          </li>
+          <ul class="child-menu">
+            <li class="child-link">
+              <a href="https://www.sff.org.au/about/our-organisation/">Our Organisation</a>
+            </li>
+          </ul>
+        </ul>
+        <ul class="col-6 col-sm-4 col-md-2 -primary-menu level-0">
+          <li class="header-link">
+            <a href="https://www.sff.org.au/support-us/">Support Us</a>
+          </li>
+          <ul class="child-menu">
+            <li class="child-link">
+              <a href="https://www.sff.org.au/support-us/individual-support/">Individual Support</a>
+              <a href="https://www.sff.org.au/support-us/partnerships/">Partnerships</a>
+            </li>
+          </ul>
+        </ul>
+        <div class="col-6 col-sm-4 col-md-2">
+          <ul class="child-menu ticketing-menu">
+            <li class="child-link">SFF Office: 9am—5pm<br></li>
+            <li class="child-link"><b>General Enquiries</b></li>
+            <li class="child-link"><a href="tel:+61 2 8220 6600">+61 2 8220 6600</a></li>
+            <li class="child-link"><a href="mailto:info@sff.org.au">info@sff.org.au</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-sm-4 col-md-2">
+          <ul class="child-menu logo-menu">
+            <li class="-social-link">
+              <a class="facebook" href="https://facebook.com/sydneyfilmfestival" target="_blank">
+                <img width="16" height="16" src="https://www.sff.org.au/wp-content/themes/sff/assets/img/social-icon-facebook.svg">
+                <span class="-social-label">sydneyfilmfestival</span>
+              </a>
+            </li>
+            <li class="-social-link">
+              <a class="twitter" href="https://twitter.com/sydfilmfest/" target="_blank">
+                <img width="16" height="16" src="https://www.sff.org.au/wp-content/themes/sff/assets/img/social-icon-twitter.svg">
+                <span class="-social-label">sydfilmfest</span>
+              </a>
+            </li>
+            <li class="-social-link">
+              <a class="instagram" href="https://instagram.com/sydfilmfest/" target="_blank">
+                <img width="16" height="16" src="https://www.sff.org.au/wp-content/themes/sff/assets/img/social-icon-instagram.svg">
+                <span class="-social-label">sydfilmfest</span>
+              </a>
+            </li>
+            <li class="-social-link">
+              <a class="youtube" href="https://youtube.com/user/sydfilmfest" target="_blank">
+                <img width="16" height="16" src="https://www.sff.org.au/wp-content/themes/sff/assets/img/social-icon-youtube.svg">
+                <span class="-social-label">sydfilmfest</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <hr />
+    </div>
+
+    <div class="special-footer">
+      <div class="container">
+        <div class="-container">
+          <div class="-logos hidden-tiny">
+            <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/by-film-sff.svg" width="66" height="47">
+            <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/sff-digital.svg" width="115" height="40">
+            <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/sff-stacked.svg" width="61" height="48">
+          </div>
+          <div class="-important-links">
+            <a class="link-special-footer" href="/privacy-policy">Privacy Policy</a>
+            <a class="link-special-footer" href="/terms-and-conditions">Terms & Conditions</a>
+            <a class="link-special-footer" href="https://www.ed.com.au" target="_blank">Website by ED.</a>
+            <a class="link-special-footer" href="https://www.shift72.com/" target="_blank">Powered by Shift72</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display: none">
 	{{if len(site.Navigation.Footer) > 0}}
 		<ul class="nav footer-nav">
 			{{range site.Navigation.Footer}}
@@ -28,6 +175,7 @@
     </p>
 
 	</div>
+  </div>
 
 </footer>
 {{end}}

@@ -28,7 +28,6 @@
     {{end}}
 
     {{if showRuntime && isset(.Runtime)}}
-
       {{if .Runtime > 60}}
         <li class="meta-item-tagline-item">{{.Runtime.Hours()}}{{i18n("runtime_hours")}} {{.Runtime.Minutes()}}{{i18n("runtime_minutes")}}</li>
       {{else}}

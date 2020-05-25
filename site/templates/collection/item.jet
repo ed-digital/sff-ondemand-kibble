@@ -15,10 +15,10 @@
       {{end}}
     </div>
 
-    <div class="page-collection-list-container">
-      <div class="page-collection-list-item-wrapper">
+    <div class="container">
+      <div class="row">
         {{ range index, item := collection.Items }}
-          <div class="page-collection-item page-collection-list-item page-collection-list-item-{{collection.ItemLayout}} page-collection-item-{{collection.ItemLayout}} page-collection-list-item-{{collection.ItemsPerRow}} page-collection-item-{{collection.ItemsPerRow}}">
+          <div class="col-12 col-sm-6 col-md-3 mb-4">
             {{yield pageCollectionItem(item=item, layout=collection.ItemLayout)}}
           </div>
         {{ end }}
