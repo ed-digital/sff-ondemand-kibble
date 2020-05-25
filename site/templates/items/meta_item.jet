@@ -24,6 +24,8 @@
     {{slugRoute = routeToSlug(item.InnerItem.Season.Slug) + "#episodes"}}
   {{end}}
 
+  {{ pricingSlug := item.Slug }}
+
   <div class="meta-item meta-item-{{layout|lower}}">
     <a href="{{slugRoute}}" target="{{isExternalPage ? "_blank" : ""}}" class="meta-item-link">
       <div class="poster poster-{{layout}}">
@@ -45,10 +47,24 @@
 
             <s72-classification-label data-slug="{{item.Slug}}"></s72-classification-label>
 
-            <s72-pricing-buttons data-slug="{{item.Slug}}" data-title="{{item.GetTranslatedTitle(i18n, item.ItemType)}}" class="meta-item-pricing-btn meta-item-pricing-btn-{{(layout == "landscape") ? "horizontal" : "vertical"}}"></s72-pricing-buttons>
+            {{ if isset(item.InnerItem["ID"]) }}
+              {{ id := item.InnerItem.ID }}
+              {{ if id == 36157 or id == 36132 or id == 36125 }}
+                <!-- screenabililty -->
+                {{ pricingSlug = "/bundle/125" }}
+              {{ end }}
+              {{ if id == 35786 or id == 35786 or id == 36126 or id == 36129 or id == 36131 or id == 36133 or id == 36138 or id == 36139 or id == 36146 or id == 36149 or id == 36155 }}
+                <!-- dendy -->
+                {{ pricingSlug = "/bundle/128" }}
+              {{ end }}
+            {{ end }}
+
+            <s72-pricing-buttons data-slug="{{ pricingSlug }}" data-title="{{item.GetTranslatedTitle(i18n, item.ItemType)}}" class="meta-item-pricing-btn meta-item-pricing-btn-{{(layout == "landscape") ? "horizontal" : "vertical"}}"></s72-pricing-buttons>
           </div>
         {{end}}
       </div>
+
+      {{ pricingSlug }}
 
       <div class="meta-item-caption">
         <div class="meta-item-title">{{item.GetTranslatedTitle(i18n, (item.ItemType + "_title_html"))|raw}}</div>

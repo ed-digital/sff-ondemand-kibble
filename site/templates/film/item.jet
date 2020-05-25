@@ -100,7 +100,17 @@
           </div>
         </div>
         <div class="col-12 col-md-3 -rent-button">
-          <s72-pricing-buttons data-slug="{{film.Slug}}" data-title="{{film.Title}}"></s72-pricing-buttons>
+          {{ pricingSlug := film.Slug }}
+          {{ id := film.ID }}
+          {{ if id == 36157 or id == 36132 or id == 36125 }}
+            <!-- screenabililty -->
+            {{ pricingSlug = "/bundle/125" }}
+          {{ end }}
+          {{ if id == 35786 or id == 35786 or id == 36126 or id == 36129 or id == 36131 or id == 36133 or id == 36138 or id == 36139 or id == 36146 or id == 36149 or id == 36155 }}
+            <!-- dendy -->
+            {{ pricingSlug = "/bundle/128" }}
+          {{ end }}
+          <s72-pricing-buttons data-slug="{{ pricingSlug }}" data-title="{{film.Title}}"></s72-pricing-buttons>
           <s72-play-button data-slug="{{film.Slug}}" class="btn-play-square-lg" data-title="{{film.Title}}"></s72-play-button>
         </div>
       </div>
@@ -120,7 +130,6 @@
                 </div>
 
                 {{parts[2] | raw}}
-
               {{ end }}
               
             </div>

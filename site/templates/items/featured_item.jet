@@ -9,9 +9,6 @@
       {{end}}
     </div>
 
-    <s72-availability-status data-slug="{{item.Slug}}"></s72-availability-status>
-    <s72-availability-label data-slug="{{item.Slug}}"></s72-availability-label>
-
     {{if !isset(item["PageType"]) || item.PageType != "external"}}
       <div class="-contents">
         <div class="container">
@@ -22,7 +19,7 @@
               <div class="-meta">
                 {{yield metaItemTagline() item.InnerItem}}
               </div>
-              <div class="-text">
+              <div class="-text hidden visible-md">
                 {{ if isset(item.InnerItem["Overview"])}}
                   {{ parts := split(item.InnerItem.Overview, "%%%" )}}
                   {{ if len(parts) == 3 }}
