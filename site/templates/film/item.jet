@@ -153,10 +153,7 @@
               {{ if film.Classifications }}
                 <dt class="-name">Classification</dt>
                 <dd class="-value">
-                {{ film.Classifications[0].Label }}
-                {{ if film.Classifications[0].Label != film.Classifications[0].Description }}
-                  ({{ film.Classifications[0].Description }})
-                {{ end }}
+                  {{ film.Classifications[0].Description }}
                 </dd>
               {{ end }}
 
@@ -173,7 +170,7 @@
               {{ yield filmAttributeDisplay(name="Co-Director", film=film) }}
               {{ yield filmAttributeDisplay(name="Producer", film=film) }}
               
-              {{ if film.Languages }}
+              {{ if len(film.Cast) > 0 }}
                 <dt class="-name">Cast</dt>
                 <dd class="-value">
                   {{ range item := film.Cast }}

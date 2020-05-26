@@ -1,6 +1,6 @@
 {
   "name": "kibble-template-tvod",
-  "version": "0.0.44",
+  "version": "0.0.46",
   "siteUrl": "https://ondemand.sff.org.au",
   "builderVersion": "0.10.16",
   "defaultLanguage": "en",
