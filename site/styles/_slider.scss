@@ -94,7 +94,7 @@ s72-slider.has-next.s72-slider-scroll:after {
   top: 0;
   z-index: 5;
   height: 100%;
-  @include gradient-x(rgba($body-bg, 0.9), transparent, 0%, 100%);
+  @include gradient-x(rgba($body-bg, 0.9), rgba($body-bg, 0.001), 0%, 100%);
   pointer-events: auto; // if its none, it allows clicks through to the item beneath it
 }
 
@@ -102,7 +102,7 @@ s72-slider.has-next.s72-slider-scroll:after {
   @extend .slider-fade-in;
   left: auto;
   right: 0;
-  @include gradient-x(transparent, rgba($body-bg, 0.9), 0%, 100%);
+  @include gradient-x(rgba($body-bg, 0.001), rgba($body-bg, 0.9), 0%, 100%);
 }
 
 .slider {
