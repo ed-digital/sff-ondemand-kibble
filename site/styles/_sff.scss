@@ -323,6 +323,10 @@
       font-size: 14px;
       margin-bottom: 20px;
       display: none;
+
+      @media screen and (min-width: 1000px) {
+        display: block !important;
+      }
     }
 
     .-buttons {
@@ -361,7 +365,7 @@
       top: 0;
       bottom: 0;
       left: 0;
-      width: 20%;
+      width: 40%;
       z-index: 2;
       background: linear-gradient(
         to right,
@@ -385,6 +389,7 @@
 .s72-carousel-slides {
   height: 60vw !important;
   margin-bottom: 2vw;
+  max-height: calc(100vh - 190px) !important;
 
   .-text {
     display: none;
@@ -413,7 +418,7 @@
   @media (min-width: 900px) {
     .container {
       .-title {
-        font-size: 48px;
+        font-size: 32px;
       }
 
       .-inner {
@@ -554,4 +559,38 @@ $fakeGridGutter: 30px;
 #mobileMenu .row,
 #mobileMenu .wrapper {
   position: static !important;
+}
+
+.single-event .-slider .-slide {
+  s72-image {
+    display: inline;
+
+    img {
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
+.bonus-content {
+  .s72-btn-play {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.single-event .-quick-metas {
+  height: auto !important;
+  overflow: visible !important;
+
+  .-item {
+    margin-right: 20px !important;
+    margin-left: 0 !important;
+    white-space: normal !important;
+
+    .-comma:last-child {
+      display: none;
+    }
+  }
 }

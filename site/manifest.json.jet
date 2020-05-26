@@ -3,7 +3,7 @@
   "name": "Screen Plus",
   "icons": [
     {
-      "src": "/images/common/icons-192.png",
+      "src": "https://www.sff.org.au/wp-content/themes/sff/favicon-2019.ico",
       "type": "image/png",
       "sizes": "192x192"
     }

@@ -55,6 +55,6 @@
       {{yield footer()}}
     </div>
 
-    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-40"></script>
+    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-51"></script>
   </body>
 </html>

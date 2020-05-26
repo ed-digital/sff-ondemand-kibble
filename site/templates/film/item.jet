@@ -20,7 +20,7 @@
         Directed by
         {{ range index, member := film.Crew }}
           {{ if member.Job == "Director" }}
-            <span class="-subvalue">{{ member.Name }}</span>
+            <span class="-subvalue">{{ member.Name }}</span><span class="-comma">,</span>
           {{ end }}
         {{ end }}
       </span>
@@ -52,9 +52,33 @@
 {{block body()}}
 
   <div class="single-event">
+    
+    {{ parts := split(film.Overview, "IMAGES:")}}
+    {{ if len(parts) > 1 }}
+      {{ imageList = parts[1] }}
+      <script type="text/javascript">
+        window.sliderImages = {{ imageList | writeJson }}
+      </script>
+    {{ end }}
+    
+    <!--<div class="-image-slides">
+      <div class="generic-slider" data-widget="genericSlider" data-autoplay="true">
+        <div class="-slider" data-container="true">
+          <div class="-slide">
+            <s72-image src="{{film.Images.Landscape}}"></s72-image>
+          </div>
+          <div class="-slide">
+            <s72-image src="{{film.Images.Landscape}}"></s72-image>
+          </div>
+          <div class="-slide">
+            <s72-image src="{{film.Images.Landscape}}"></s72-image>
+          </div>
+        </div>
+      </div>
+    </div>-->
 
     <!-- Image Slider -->
-    <div class="-image-slides">
+    <div class="-image-slides" data-widget="s72ImageSlider">
       <div class="container">
         <div class="row">
           <div class="-single col-12 col-md-10 offset-md-2">
@@ -134,8 +158,45 @@
                   {{ parts[0] | raw }}
                 </div>
 
-                {{parts[2] | raw}}
+                {{ descriptionParts := split(parts[2], "IMAGES:") }}
+
+                {{ descriptionParts[0] | raw }}
               {{ end }}
+
+              {{if len(film.Bonuses) > 0 }}
+                <div class="related-film-slider bonus-content">
+                  <div class="meta-detail-bonus-content">
+                    <h4 class="pb-3" style="font-size: 17px; margin-bottom: 0;">Bonus Content</h4>
+                    {{yield slider(itemsPerRow=6, itemLayout="landscape") content}}
+                      {{range bonus := film.Bonuses}}
+                        <div class="slider-item slider-item-6">
+                          <div class="bonus-content">
+                            <div class="bonus-content-poster poster poster-landscape">
+                              <s72-availability-status slug="{{bonus.Slug}}"></s72-availability-status>
+                              <s72-image src="{{len(bonus.Images.Landscape) > 0 ? bonus.Images.Landscape : film.Images.Landscape}}" alt="" class="poster-image poster-image-landscape"></s72-image>
+                              <s72-play-button data-slug="{{bonus.Slug}}" class="btn-play-poster" data-label="false" title="{{bonus.Title}}"></s72-play-button>
+                              <s72-playback-progress slug="{{bonus.Slug}}"></s72-playback-progress>
+                            </div>
+                            <div class="bonus-content-caption">
+                              <div class="bonus-content-title">{{bonus.Title}}</div>
+                              <div class="bonus-content-synopsis">{{bonus.Overview | raw}}</div>
+
+                              {{if bonus.Runtime > 0}}
+                                <div class="bonus-content-runtime">
+                                  {{if bonus.Runtime.Hours() > 0}}
+                                    {{bonus.Runtime.Hours()}}{{i18n("runtime_hours")}}
+                                  {{end}}
+                                  {{bonus.Runtime.Minutes()}}{{i18n("runtime_minutes")}}
+                                </div>
+                              {{end}}
+                            </div>
+                          </div>
+                        </div>
+                      {{end}}
+                    {{end}}
+                  </div>
+                </div>
+              {{end}}
               
             </div>
           </div>
@@ -189,41 +250,6 @@
             </dl>
           {{end}}
         </div>
-
-        {{if len(film.Bonuses) > 0 }}
-          <div class="related-film-slider bonus-content col-12 pt-5">
-            <div class="meta-detail-bonus-content">
-              <h4 class="pb-3">Bonus Content</h4>
-              {{yield slider(itemsPerRow=6, itemLayout="landscape") content}}
-                {{range bonus := film.Bonuses}}
-                  <div class="slider-item slider-item-6">
-                    <div class="bonus-content">
-                      <div class="bonus-content-poster poster poster-landscape">
-                        <s72-availability-status slug="{{bonus.Slug}}"></s72-availability-status>
-                        <s72-image src="{{len(bonus.Images.Landscape) > 0 ? bonus.Images.Landscape : film.Images.Landscape}}" alt="" class="poster-image poster-image-landscape"></s72-image>
-                        <s72-play-button data-slug="{{bonus.Slug}}" class="btn-play-poster" data-label="false" title="{{bonus.Title}}"></s72-play-button>
-                        <s72-playback-progress slug="{{bonus.Slug}}"></s72-playback-progress>
-                      </div>
-                      <div class="bonus-content-caption">
-                        <div class="bonus-content-title">{{bonus.Title}}</div>
-                        <div class="bonus-content-synopsis">{{bonus.Overview | raw}}</div>
-
-                        {{if bonus.Runtime > 0}}
-                          <div class="bonus-content-runtime">
-                            {{if bonus.Runtime.Hours() > 0}}
-                              {{bonus.Runtime.Hours()}}{{i18n("runtime_hours")}}
-                            {{end}}
-                            {{bonus.Runtime.Minutes()}}{{i18n("runtime_minutes")}}
-                          </div>
-                        {{end}}
-                      </div>
-                    </div>
-                  </div>
-                {{end}}
-              {{end}}
-            </div>
-          </div>
-        {{end}}
 
         {{if len(film.Recommendations) > 0 }}
         <div class="related-film-slider col-12 pt-5">

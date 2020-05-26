@@ -8,26 +8,28 @@
 	None of the html in .carousel-item is finished or even 10% looked at, so feel free to make it better.
 	This was copypasted from web-core.
 *}
-<s72-carousel data-image-width="1600" data-image-height="600" pause-on-hover="true">
-	<div class="page-collection page-collection-carousel">
-		<div class="s72-carousel-slides">
-			{{range item := .Items}}
-				<div class="s72-carousel-item">
-					{{yield featuredItem(item=item, image="Carousel")}}
-				</div>
-			{{end}}
-		</div>
+<s72-carousel data-image-width="1600" data-image-height="600" pause-on-hover="false">
+  <div class="page-collection page-collection-carousel">
 
-		<div class="s72-carousel-pagination">
-			{{range index, item := .Items}}
-				<div class="s72-carousel-page" data-page-index="{{index}}"><span class="carousel-page-rect"></span></div>
-			{{end}}
-		</div>
+    <div class="s72-carousel-slides">
+      {{range item := .Items}}
+        <div class="s72-carousel-item">
+          {{yield featuredItem(item=item, image="Background")}}
+        </div>
+      {{end}}
+    </div>
 
-		<!-- Controls -->
-		<a class="left s72-carousel-control"><span class="s72-icon s72-icon-angle-left"></span></a>
-		<a class="right s72-carousel-control"><span class="s72-icon s72-icon-angle-right"></span></a>
-	</div>
+    <div class="s72-carousel-pagination">
+      {{range index, item := .Items}}
+        <div class="s72-carousel-page" data-page-index="{{index}}"><span class="carousel-page-rect"></span></div>
+      {{end}}
+    </div>
+
+    <!-- Controls -->
+    <a class="left s72-carousel-control"><span class="s72-icon s72-icon-angle-left"></span></a>
+    <a class="right s72-carousel-control"><span class="s72-icon s72-icon-angle-right"></span></a>
+
+  </div>
 </s72-carousel>
 {{end}}
 {{end}}
