@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="{{CDN}}/s72.ui.css">
     <link rel="stylesheet" href="{{CDN}}/s72.transactional.css">
 
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="https://www.sff.org.au/wp-content/themes/sff/dist/css/screen.css?ver=1581904052">
+    <link rel="stylesheet" href="/styles/main.css?ver=s72-70">
+    <link rel="stylesheet" href="https://www.sff.org.au/wp-content/themes/sff/dist/css/screen.css?ver=s72-70">
 
     <link rel="shortcut icon" href="https://www.sff.org.au/wp-content/themes/sff/favicon-2019.ico" />
 
@@ -55,6 +55,6 @@
       {{yield footer()}}
     </div>
 
-    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-51"></script>
+    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-55"></script>
   </body>
 </html>

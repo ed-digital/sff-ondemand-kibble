@@ -7,15 +7,15 @@
     <div class="subscribe-banner" data-widget="subscribe">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-sm-3 col-md-2">
+          <div class="col-12 col-lg-3 col-lg-2">
             <h2 class="-title">
               Stay Updated
             </h2>
             <p class="-description">Join our newsletter</p>
           </div>
-          <div class="col-10 col-small-9 col-tiny-12">
+          <div class="col-12 col-lg-10">
             <div class="row">
-              <div class="col-4 col-small-3 col-tiny-12">
+              <div class="col-12 col-lg-4">
                 <div class="select-wrapper">
                   <select name="list">
                     <option value="abc4e17558" data-base-url="https://sff.us15.list-manage.com/subscribe/post-json?u=e7c715dbcdaa7723c89fb820d" data-list-id="abc4e17558" data-centre-slug="">Sydney Film Festival Newsletter</option>
@@ -39,10 +39,10 @@
                   </select>
                 </div>
               </div>
-              <div class="col-4 col-small-3 col-tiny-12">
+              <div class="col-12 col-lg-4">
                 <input type="email" name="email" class="email-input" placeholder="Email address">
               </div>
-              <div class="col-2 col-small-3 col-tiny-12 -submit-column">
+              <div class="col-12 col-lg-3 col-tiny-12 -submit-column">
                 <button type="submit" class="button">Subscribe</button>
               </div>
             </div>
@@ -130,7 +130,7 @@
     <div class="special-footer">
       <div class="container">
         <div class="-container">
-          <div class="-logos hidden-tiny">
+          <div class="-logos d-none d-lg-flex">
             <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/by-film-sff.svg" width="66" height="47">
             <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/sff-digital.svg" width="115" height="40">
             <img src="https://www.sff.org.au/wp-content/themes/sff/assets/img/sff-stacked.svg" width="61" height="48">
