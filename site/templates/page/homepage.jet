@@ -24,6 +24,16 @@
       {{yield pageCollectionCarousel() page.PageCollections[0]}}
     </div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <s72-userwishlist signin-url="/signin.html" hide-if-empty="true" force-login="false" partials-base-path="/partials">
+            <h3 class="page-collection-title">My List</h3>
+          </s72-userwishlist>
+        </div>
+      </div>
+    </div>
+
     {{range index, pf := page.PageCollections}}
       {{if index > 1}}{{yield pageCollection() pf}}{{end}}
     {{end}}

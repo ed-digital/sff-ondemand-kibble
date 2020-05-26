@@ -64,8 +64,6 @@
         {{end}}
       </div>
 
-      {{ pricingSlug }}
-
       <div class="meta-item-caption">
         <div class="meta-item-title">{{item.GetTranslatedTitle(i18n, (item.ItemType + "_title_html"))|raw}}</div>
         <div class="meta-item-description">

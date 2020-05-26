@@ -1,1 +1,1 @@
-console.log("Oh hey");
+// Prevent SFF javascript code from

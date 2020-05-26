@@ -42,6 +42,7 @@
   text-transform: uppercase;
   font-weight: bold;
   border-top: 1px solid black;
+  margin-bottom: 20px;
 }
 
 // .btn,
@@ -440,7 +441,7 @@
     }
   }
 
-  .s72-dropdown-ite,
+  .s72-dropdown-item,
   a.dropdown-item {
     color: black !important;
     transition: none !important;
@@ -518,7 +519,10 @@ input[type="checkbox"] {
   margin-bottom: 28px;
 }
 
-.s72-userlibrary-items {
+$fakeGridGutter: 30px;
+
+.s72-userlibrary-items,
+.s72-userwishlist-items {
   display: flex;
   flex-wrap: wrap;
 
@@ -528,20 +532,26 @@ input[type="checkbox"] {
   }
 
   @media screen and (min-width: 700px) {
-    margin-left: -20px;
+    margin-left: -$fakeGridGutter;
 
     > .meta-item {
-      width: calc((100% - 20px - 20px) / 2);
-      margin-left: 20px;
+      width: calc((100% - #{$fakeGridGutter} - #{$fakeGridGutter}) / 2);
+      margin-left: $fakeGridGutter;
     }
   }
 
   @media screen and (min-width: 1150px) {
-    margin-left: -20px;
+    margin-left: -$fakeGridGutter;
 
     > .meta-item {
-      width: calc((100% - 20px * 3 - 20px) / 4);
-      margin-left: 20px;
+      width: calc((100% - #{$fakeGridGutter} * 3 - #{$fakeGridGutter}) / 4);
+      margin-left: $fakeGridGutter;
     }
   }
+}
+
+#mobileMenu .-main-col,
+#mobileMenu .row,
+#mobileMenu .wrapper {
+  position: static !important;
 }

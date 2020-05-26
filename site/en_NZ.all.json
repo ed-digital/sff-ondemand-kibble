@@ -498,5 +498,8 @@
   "bundle_items_mixed": { "other": "{{.Count}} films and seasons" },
 
   "userwishlist_button_add": { "other": "" },
-  "userwishlist_button_remove": { "other": "" }
+  "userwishlist_button_remove": { "other": "" },
+
+  "userwishlist_empty_header": { "other": "" },
+  "userwishlist_empty_content": { "other": "" }
 }

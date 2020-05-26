@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="https://www.sff.org.au/wp-content/themes/sff/dist/css/screen.css?ver=1581904052">
 
-    <link rel="shortcut icon" href="/images/common/favicon.png" type="image/png">
-    <link rel="icon" href="/images/common/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="https://www.sff.org.au/wp-content/themes/sff/favicon-2019.ico" />
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch" defer></script>
     <script src="{{CDN}}/s72.core.js" defer></script>
@@ -56,6 +55,6 @@
       {{yield footer()}}
     </div>
 
-    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=1590187281"></script>
+    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-40"></script>
   </body>
 </html>

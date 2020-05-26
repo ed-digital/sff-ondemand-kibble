@@ -100,17 +100,22 @@
           </div>
         </div>
         <div class="col-12 col-md-3 -rent-button">
-          {{ pricingSlug := film.Slug }}
+
+          {{ pricingSlug = film.Slug }}
+          
           {{ id := film.ID }}
+          
           {{ if id == 36157 or id == 36132 or id == 36125 }}
             <!-- screenabililty -->
             {{ pricingSlug = "/bundle/125" }}
           {{ end }}
+  
           {{ if id == 35786 or id == 35786 or id == 36126 or id == 36129 or id == 36131 or id == 36133 or id == 36138 or id == 36139 or id == 36146 or id == 36149 or id == 36155 }}
             <!-- dendy -->
             {{ pricingSlug = "/bundle/128" }}
           {{ end }}
-          <s72-pricing-buttons data-slug="{{ pricingSlug }}" data-title="{{film.Title}}"></s72-pricing-buttons>
+          
+          <s72-pricing-buttons data-slug="{{pricingSlug}}" data-title="{{film.Title}}"></s72-pricing-buttons>
           <s72-play-button data-slug="{{film.Slug}}" class="btn-play-square-lg" data-title="{{film.Title}}"></s72-play-button>
         </div>
       </div>
@@ -156,17 +161,33 @@
               {{ end }}
 
               {{ yield filmAttributeDisplay(name="Country", film=film) }}
-              {{ yield filmAttributeDisplay(name="Language", film=film) }}
+              {{ if film.Languages }}
+                <dt class="-name">Language</dt>
+                <dd class="-value">
+                  {{ film.Languages }}
+                </dd>
+              {{ end }}
+
               {{ yield filmAttributeDisplay(name="Premiere Status", film=film) }}
               {{ yield filmAttributeDisplay(name="Director", film=film) }}
-              {{ yield filmAttributeDisplay(name="Cast", film=film) }}
+              {{ yield filmAttributeDisplay(name="Co-Director", film=film) }}
+              {{ yield filmAttributeDisplay(name="Producer", film=film) }}
+              
+              {{ if film.Languages }}
+                <dt class="-name">Cast</dt>
+                <dd class="-value">
+                  {{ range item := film.Cast }}
+                    <a href="/search.html?q={{item.Name}}">{{item.Name}}</a><span class="-comma">, </span>
+                  {{ end }}
+                </dd>
+              {{ end }}
+
               {{ yield filmAttributeDisplay(name="Screenwriter", film=film) }}
               {{ yield filmAttributeDisplay(name="Cinematographer", film=film) }}
               {{ yield filmAttributeDisplay(name="Editor", film=film) }}
               {{ yield filmAttributeDisplay(name="Premiere", film=film) }}
               {{ yield filmAttributeDisplay(name="Genre", film=film) }}
               {{ yield filmAttributeDisplay(name="Company Credits", film=film) }}
-              {{ yield filmAttributeDisplay(name="Co-Director", film=film) }}
 
             </dl>
           {{end}}
