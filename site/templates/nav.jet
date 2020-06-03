@@ -56,7 +56,7 @@
                   <li id="menu-item-996" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-996"><a title="Support Us" href="https://www.sff.org.au/support-us/support/" draggable="false">Support Us</a>
                   <ul class="sub-menu">
                   <li id="menu-item-987" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-987"><a title="Support" href="https://www.sff.org.au/support-us/support/" draggable="false">Support</a></li>
-                  <li id="menu-item-556" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-556"><a title="Donate Now" href="https://www.sff.org.au/support-us/donate-now/" draggable="false">Donate Now</a></li>
+                  <li id="menu-item-556" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-556"><a title="Donate Now" href="https://www.sff.org.au/support-us/individual-support/" draggable="false">Donate Now</a></li>
                   <li id="menu-item-3815" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3815"><a title="Individual Support" href="https://www.sff.org.au/support-us/individual-support/" draggable="false">Individual Support</a></li>
                   <li id="menu-item-558" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-558"><a title="Partnerships" href="https://www.sff.org.au/support-us/partnerships/" draggable="false">Partnerships</a></li>
                   </ul>
@@ -87,7 +87,7 @@
               </div>
               <section class="-user-menu">
                 <div class="-donate-button">
-                  <a class="button --donate cart-icon" href="https://www.sff.org.au/support-us/donate-now/" title="Donate">
+                  <a class="button --donate cart-icon" href="https://www.sff.org.au/support-us/individual-support/" title="Donate">
                     Donate
                   </a>
                 </div>
@@ -234,7 +234,7 @@
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-996"><a title="Support Us" href="https://www.sff.org.au/support-us/support/">Support Us</a>
 <ul class="sub-menu">
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-987"><a title="Support" href="https://www.sff.org.au/support-us/support/">Support</a></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-556"><a title="Donate Now" href="https://www.sff.org.au/support-us/donate-now/">Donate Now</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-556"><a title="Donate Now" href="https://www.sff.org.au/support-us/individual-support/">Donate Now</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3815"><a title="Individual Support" href="https://www.sff.org.au/support-us/individual-support/">Individual Support</a>
 <ul class="sub-menu">
 <li id="menu-item-4472" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4472"><a title="The Director's Patrons" href="https://www.sff.org.au/support-us/individual-support/the-directors-patrons/">The Director’s Patrons</a></li>

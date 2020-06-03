@@ -10,6 +10,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-M3J4P4X');</script>
+		<!-- End Google Tag Manager -->
+
     <link rel="manifest" href="/manifest.json">
     <link rel="preload" href="/{{lang.DefinitionFilePath}}" as="fetch" crossorigin>
     <link rel="preload" href="/classifications.all.json" as="fetch" crossorigin type="application/json">
@@ -19,8 +27,8 @@
     <link rel="stylesheet" href="{{CDN}}/s72.ui.css">
     <link rel="stylesheet" href="{{CDN}}/s72.transactional.css">
 
-    <link rel="stylesheet" href="/styles/main.css?ver=s72-70">
-    <link rel="stylesheet" href="https://www.sff.org.au/wp-content/themes/sff/dist/css/screen.css?ver=s72-70">
+    <link rel="stylesheet" href="/styles/main.css?ver=s72-71">
+    <link rel="stylesheet" href="https://www.sff.org.au/wp-content/themes/sff/dist/css/screen.css?ver=s72-71">
 
     <link rel="shortcut icon" href="https://www.sff.org.au/wp-content/themes/sff/favicon-2019.ico" />
 
@@ -55,6 +63,32 @@
       {{yield footer()}}
     </div>
 
-    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-55"></script>
+    <script src="https://www.sff.org.au/wp-content/themes/sff/dist/js/bundle.js?ver=s72-71"></script>
+    <script type="text/javascript">
+      setTimeout(() => {
+        $("s72-pricing-buttons").each((k, root) => {
+          $(root).find("button").on('click', () => {
+            const title = root.getAttribute('data-title')
+            const slug = root.getAttribute('data-slug')
+            const price = $(root).find('.price').text()
+            const dataToPush = {
+              'ecommerce': {
+                'purchase': {
+                  'products': [{
+                    'name': title,
+                    'id': slug,
+                    'price': price,
+                    'brand': 'SFF',
+                    'quantity': 1                   
+                  }]
+                }
+              }
+            }
+            dataLayer.push(dataToPush)
+            console.log('DL', dataToPush)
+          })
+        })
+      }, 1000)
+    </script>
   </body>
 </html>

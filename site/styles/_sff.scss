@@ -75,6 +75,30 @@
       background: #ffed00;
       color: #170c66;
     }
+
+    s72-cant-be-watched {
+      width: 100%;
+    }
+
+    .-button-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+
+      .s72-btn {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .-bundle-label {
+        font-size: 12px;
+        margin-top: 5px;
+
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
 

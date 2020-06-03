@@ -4,9 +4,13 @@
 <div class="homepage-slider-tile">
   <a href="{{routeToSlug(item.Slug)}}">
     <div class="-image-wrapper">
-      {{if isset(item.Images[image])}}
-        <s72-image src="{{item.Images[image]}}" alt="{{item.GetTranslatedTitle(i18n, "")}}" class="-image"></s72-image>
-      {{end}}
+      {{ if item.ItemType == "page" }}
+        <s72-image src="{{item.Images["Carousel"]}}" class="-image"></s72-image>
+      {{ else }}
+        {{if isset(item.Images[image])}}
+          <s72-image src="{{item.Images[image]}}" alt="{{item.GetTranslatedTitle(i18n, "")}}" class="-image"></s72-image>
+        {{end}}
+      {{ end }}
     </div>
 
     {{if !isset(item["PageType"]) || item.PageType != "external"}}
@@ -24,13 +28,14 @@
                 {{ if len(parts) == 3 }}
                   <div class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</div>
                 {{ end }}
-              {{ end }}
-              {{ if isset(item.InnerItem["Description"])}}
+              {{ else if isset(item.InnerItem["Description"])}}
                 <!-- A 'Bundle' tile -->
                 {{ parts := split(item.InnerItem.Description, "%%%" )}}
                 {{ if len(parts) == 3 }}
                   <div class="-text">{{ replace(parts[0], "**", "", -1) | raw}}</div>
                 {{ end }}
+              {{ else }}
+                <div class="-text">{{item.InnerItem["Tagline"]}}</div>
               {{ end }}
             {{end}}
 
@@ -46,6 +51,11 @@
                   </div>
 
                 </s72-cant-be-watched>
+              {{end}}
+              {{if item.ItemType == "page" }}
+                <div class="button">
+                  Read More
+                </div>
               {{end}}
             </div>
           </div>
