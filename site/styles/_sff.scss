@@ -71,6 +71,19 @@
     display: flex;
     align-items: flex-end;
 
+    &.is-free-event {
+      .--paid {
+        display: none !important;
+      }
+
+      .--free {
+        display: block !important;
+      }
+      .s72-btn-rent-price {
+        display: none;
+      }
+    }
+
     .s72-btn-rent {
       background: #ffed00;
       color: #170c66;

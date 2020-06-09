@@ -123,7 +123,7 @@
             {{ end }}
           </div>
         </div>
-        <div class="col-12 col-md-3 -rent-button">
+        <div class="col-12 col-md-3 -rent-button" id="rentButtonContainer">
 
           {{ pricingSlug = film.Slug }}
           
@@ -144,11 +144,22 @@
           <s72-cant-be-watched data-slug="{{film.Slug}}">
             <div class="-button-container">
               <s72-pricing-buttons data-slug="{{pricingSlug}}" data-title="{{film.Title}}"></s72-pricing-buttons>
-              <div class="-bundle-label">Rentals are limited, <a href="https://www.sff.org.au/tickets/buying-tickets-virtual-edition/">save up to 35% with a bundle!</a></div>
+              <div class="-bundle-label --paid">Rentals are limited, <a href="https://www.sff.org.au/tickets/buying-tickets-virtual-edition/">save up to 35% with a bundle!</a></div>
+              <div class="-bundle-label --free" style="display: none;">RENT to register for this FREE event</div>
             </div>
           </s72-cant-be-watched>
         </div>
       </div>
+
+      <script type="text/javascript">
+        setInterval(function() {
+          if (!window.jQuery) return;
+          var container = $("#rentButtonContainer");
+          if (container.find(".s72-btn-rent-price").text() == "$0.00") {
+            container.addClass("is-free-event")
+          }
+        }, 800)
+      </script>
 
       <div class="row">
 
