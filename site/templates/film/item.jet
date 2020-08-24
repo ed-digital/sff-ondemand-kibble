@@ -144,7 +144,7 @@
           <s72-cant-be-watched data-slug="{{film.Slug}}">
             <div class="-button-container">
               <s72-pricing-buttons data-slug="{{pricingSlug}}" data-title="{{film.Title}}"></s72-pricing-buttons>
-              <div class="-bundle-label --paid">Rentals are limited, <a href="https://www.sff.org.au/tickets/buying-tickets-virtual-edition/">save up to 35% with a bundle!</a></div>
+              <div class="-bundle-label --paid">Rentals are limited <!--, <a href="https://www.sff.org.au/tickets/buying-tickets-virtual-edition/">save up to 35% with a bundle!</a> --></div>
               <div class="-bundle-label --free" style="display: none;">RENT to register for this FREE event</div>
             </div>
           </s72-cant-be-watched>

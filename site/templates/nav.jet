@@ -31,10 +31,10 @@
             <div class="col-12 col-lg-10 -nav-column">
               <div class="-main-nav --sff" data-widget="horizontalMenu">
                 
-                <div class="menu-sydney-film-festival-container"><ul id="menu-sydney-film-festival" class="menu"><li id="menu-item-12399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12399 current-menu-item"><a title="On Demand" href="https://ondemand.sff.org.au/" draggable="false">On Demand</a></li>
+                <div class="menu-sydney-film-festival-container"><ul id="menu-sydney-film-festival" class="menu"><li id="menu-item-12399" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12399 current-menu-item"><a title="2020 Program" href="https://ondemand.sff.org.au/" draggable="false">2020 Program</a></li>
                   <li id="menu-item-8403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8403"><a title="Festival Info" href="https://www.sff.org.au/info/" draggable="false">Festival Info</a>
                   <ul class="sub-menu">
-                  <li id="menu-item-12356" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12356"><a title="On Demand" href="http://ondemand.sff.org.au" draggable="false">On Demand</a></li>
+                  <li id="menu-item-12356" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12356"><a title="2020 Program" href="http://ondemand.sff.org.au" draggable="false">2020 Program</a></li>
                   <li id="menu-item-12355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12355"><a title="Buying Tickets" href="https://www.sff.org.au/tickets/buying-tickets-virtual-edition/" draggable="false">Buying Tickets</a></li>
                   <li id="menu-item-12354" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12354"><a title="We Are One" href="http://www.weareoneglobalfestival.com/" draggable="false">We Are One</a></li>
                   <li id="menu-item-12353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12353"><a title="SBS Collection" href="http://sbs.com.au/movies/sydney-film-festival" draggable="false">SBS Collection</a></li>
@@ -42,7 +42,6 @@
                   <li id="menu-item-10601" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10601"><a title="Blog" href="https://www.sff.org.au/info/blog/" draggable="false">Blog</a></li>
                   </ul>
                   </li>
-                  <li id="menu-item-12297" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12297"><a title="Tickets" href="https://sff.org.au/tickets" draggable="false">Tickets</a></li>
                   <li id="menu-item-8408" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8408"><a title="Initiatives" href="https://www.sff.org.au/initiatives/" draggable="false">Initiatives</a>
                   <ul class="sub-menu">
                   <li id="menu-item-12345" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12345"><a title="SBS Collection" href="http://sbs.com.au/movies/sydney-film-festival" draggable="false">SBS Collection</a></li>
